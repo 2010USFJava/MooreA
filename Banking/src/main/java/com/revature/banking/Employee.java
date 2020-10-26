@@ -105,67 +105,6 @@ public class Employee {
 	}
 
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((admin == null) ? 0 : admin.hashCode());
-		result = prime * result + ((emp == null) ? 0 : emp.hashCode());
-		result = prime * result + empID;
-		result = prime * result + ((fName == null) ? 0 : fName.hashCode());
-		result = prime * result + ((lName == null) ? 0 : lName.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		return result;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Employee other = (Employee) obj;
-		if (admin == null) {
-			if (other.admin != null)
-				return false;
-		} else if (!admin.equals(other.admin))
-			return false;
-		if (emp == null) {
-			if (other.emp != null)
-				return false;
-		} else if (!emp.equals(other.emp))
-			return false;
-		if (empID != other.empID)
-			return false;
-		if (fName == null) {
-			if (other.fName != null)
-				return false;
-		} else if (!fName.equals(other.fName))
-			return false;
-		if (lName == null) {
-			if (other.lName != null)
-				return false;
-		} else if (!lName.equals(other.lName))
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
-			return false;
-		return true;
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
 }
 /* Admin should be able to view all customers info:
  *  approving/denying accounts

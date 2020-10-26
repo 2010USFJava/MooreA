@@ -99,57 +99,6 @@ public class Account {
 
 
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + acctNum;
-		long temp;
-		temp = Double.doubleToLongBits(balance);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((close == null) ? 0 : close.hashCode());
-		result = prime * result + ((open == null) ? 0 : open.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		return result;
-	}
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Account other = (Account) obj;
-		if (acctNum != other.acctNum)
-			return false;
-		if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
-			return false;
-		if (close == null) {
-			if (other.close != null)
-				return false;
-		} else if (!close.equals(other.close))
-			return false;
-		if (open == null) {
-			if (other.open != null)
-				return false;
-		} else if (!open.equals(other.open))
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
-			return false;
-		return true;
-	}
-
-
-	
-	
-
 }
 /* check for overdrawn accounts or
  *  inputting negative amounts

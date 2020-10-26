@@ -29,6 +29,9 @@ public class User {
 		this.pswd = pswd;
 	}
 	
+	public void createUser() {
+		
+	}
 	
 	public void  adminUser(String username, String pswd) {
 		System.out.println("Enter admin username");
