@@ -1,6 +1,9 @@
 package com.revature.beans;
 
-public class Person {
+import com.revature.classtypes.Mammal;
+import com.revature.exceptions.IncreasedByNegativeNumberException;
+
+public class Person extends Mammal {
 	static{ //runs when this class is FIRST loaded into the compiler
 		System.out.println("I am in a static code block");
 	}
@@ -81,4 +84,25 @@ public class Person {
 				", homePlanet= "+homePlanet+"]";
 	}
 
+	@Override
+	public void findPrey() {
+	System.out.println("I go to whole foods and buy sweet potatos");
+		
+	}
+
+	@Override
+	public void breathe() {
+		System.out.println(" I breath air");
+		
+	}
+
+	//throwing or ducking
+	public void increaseAgeBy(int x) throws IncreasedByNegativeNumberException  {
+		if(x<=0) {
+			throw new IncreasedByNegativeNumberException();
+		}
+		this.age+=x;
+	}
+	
+	
 }

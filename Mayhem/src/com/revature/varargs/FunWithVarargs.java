@@ -3,7 +3,7 @@ package com.revature.varargs;
 public class FunWithVarargs {
 
 	public static void main(String[] args) {
-	//	vaTest(10,6,78,321,51436,14354153,5);
+	vaTest("we ", 10);
 		//vaTest();
 	}
 	
