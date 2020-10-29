@@ -3,70 +3,84 @@ package com.revature.banking;
 import java.util.Scanner;
 
 public class User {
+	
 	public  String username;
 	public String pswd;
 	private String customer;
 	private String admin;
 	private String employee;
 	
-	Scanner in = new Scanner(System.in);
-	String ans=in.next();
-	User user = new User();
+	public static Scanner in = new Scanner(System.in);
+	String ans;
+	
+	Customer cust = new Customer();
+	
+	
 	
 	public User() {
-		this(" ");
+		
 	}
 
-	
-	public User(String username) {
-		this(username, " ");
-	}
-
-	
 
 	public User(String username, String pswd) {
 		this.username = username;
 		this.pswd = pswd;
 	}
 	
-	public void createUser() {
+	public void getUser() {
+	
+			System.out.println("Enter username");
+			ans=in.nextLine();
+			ans=getUsername();
+			ans=in.nextLine();
+			
+			System.out.println("Enter password");
+			ans=in.nextLine();
+			ans=getPswd();
+			
+			cust.SignInInfo();
+			
 		
 	}
 	
 	public void  adminUser(String username, String pswd) {
 		System.out.println("Enter admin username");
-		ans=user.getUsername();
-		user.setUsername(ans);
-		in.next();
+		ans=in.nextLine();
+		ans=getUsername();
+		ans=in.nextLine();
+		
+		
 		
 		System.out.println("Enter password");
-		ans=user.getPswd();
-		user.setPswd(ans);
+		ans=in.nextLine();
+		setPswd(ans);
 		
 	}
 
 	public void empUser(String username, String pswd) {
 		System.out.println("Enter employee username");
-		
-		ans=user.getUsername();
-		user.setUsername(ans);
-		in.next();
+		ans=in.nextLine();
+		ans=getUsername();
+		ans=in.nextLine();
 		
 		System.out.println("Enter password");
-		ans=user.getPswd();
-		user.setPswd(ans);
+		ans=in.nextLine();
+		ans=getPswd();
+		
 		
 	}
 	
-	public void custUser(String username, String pswd) {
-		System.out.println("username");
-		ans=user.getUsername();
-		user.setUsername(ans);
-		in.next();
+	public  void custUser() {
+		System.out.println("enter username");
+		ans=in.nextLine();
+		ans=getUsername();
+		ans=in.nextLine();
 		
-	System.out.println("password");
-	    ans=user.getPswd();
-	    user.setPswd(ans);
+		
+		System.out.println("enter password");
+		ans=in.nextLine();
+	    ans=getPswd();
+	    
 		
 	}
 	

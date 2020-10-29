@@ -5,28 +5,42 @@ import java.util.Scanner;
 
 public class Account {
 	
-	private static int acctNum;
-	private String type;
+	public static  int acctNum;
 	private String open;
 	private String close;
 	private double balance;
+	private String checking;
+	private String savings;
+	private String ind;
+	private String joint;
+	private String actType;
 	
+	
+
 	Scanner in = new Scanner(System.in);
 	double amt=in.nextDouble();
-	Account act = new Account();
+	static Account act = new Account();
 	
 	public Account() {
 	
 	}
 
-	public Account(int acctNum, String type, String open, String close, double balance) {
-		super();
-		this.acctNum = acctNum;
-		this.type=type;
-		this.open = open;
-		this.close = close;
-		this.balance = balance;
-	}
+		public Account(String open, String close, double balance, String checking, String savings, String ind,
+				String joint, String actType, Scanner in, double amt, Account act) {
+			super();
+			this.open = open;
+			this.close = close;
+			this.balance = balance;
+			this.checking = checking;
+			this.savings = savings;
+			this.ind = ind;
+			this.joint = joint;
+			this.actType = actType;
+			this.in = in;
+			this.amt = amt;
+			Account.act = act;
+		}
+
 
 
 		public static void createAccountNum() {
@@ -37,31 +51,35 @@ public class Account {
 		
 		
 		public void displayAcct() {
-			System.out.println(acctNum+ type+ balance);
+			System.out.println(acctNum+ actType+ balance);
 		}
 		
 		
 		
-		public void acctbalance() {
+		public void acctBalance() {
 			System.out.println("Account balance: " + balance);
 		}
+		
+		public void getAcctType() {
+			if(actType==checking) {
+				System.out.println("individual or joint ");
+				if(actType==ind) {
+					
+				}
+			}
+			
+			
+		}
+		
 		
 		
 	public int getAcctNum() {
 		return acctNum;
 	}
 	public void setAcctNum(int acctNum) {
-		this.acctNum = acctNum;
+		Account.acctNum = acctNum;
 	}
 
-
-
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type=type;
-	}
 
 
 	public String getOpen() {
@@ -91,12 +109,78 @@ public class Account {
 
 
 
-	@Override
-	public String toString() {
-		return "Account [acctNum=" + acctNum + ", type=" + type + ", open=" + open + ", close=" + close + ", balance="
-				+ balance + "]";
+	public String getChecking() {
+		return checking;
+	}
+	public void setChecking(String checking) {
+		this.checking = checking;
 	}
 
+
+
+	public String getSavings() {
+		return savings;
+	}
+	public void setSavings(String savings) {
+		this.savings = savings;
+	}
+
+
+
+	public String getInd() {
+		return ind;
+	}
+	public void setInd(String ind) {
+		this.ind = ind;
+	}
+
+
+
+	public String getJoint() {
+		return joint;
+	}
+	public void setJoint(String joint) {
+		this.joint = joint;
+	}
+
+
+
+
+	public double getAmt() {
+		return amt;
+	}
+	public void setAmt(double amt) {
+		this.amt = amt;
+	}
+
+
+
+	public static Account getAct() {
+		return act;
+	}
+	public void setAct(Account act) {
+		this.act = act;
+	}
+
+	public String actType() {
+		return actType;
+	}
+	public void setAcctType(String actType) {
+		this.actType = actType;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Account [open=" + open + ", close=" + close + ", balance=" + balance + ", checking=" + checking
+				+ ", savings=" + savings + ", ind=" + ind + ", joint=" + joint + ", actType=" + actType + ", in=" + in
+				+ ", amt=" + amt + ", act=" + act + "]";
+	}
+
+
+
+	
 
 
 }

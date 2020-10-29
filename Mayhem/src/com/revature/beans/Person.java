@@ -1,14 +1,21 @@
 package com.revature.beans;
 
+import java.io.Serializable;
+
 import com.revature.classtypes.Mammal;
 import com.revature.exceptions.IncreasedByNegativeNumberException;
 
-public class Person extends Mammal {
+public class Person extends Mammal implements Serializable{ //marker interface or tag- no methods in it
+	
+	private static final long serialVersionUID = 2722279129588312875L;
+
 	static{ //runs when this class is FIRST loaded into the compiler
 		System.out.println("I am in a static code block");
 	}
 	//Instance Code Block
 	{System.out.println("I am in an instance code block");}
+	
+	
 	/*bean- represents some entity
 	More for data structure 
 	Makeup:

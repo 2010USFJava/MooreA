@@ -10,7 +10,11 @@ public class Transactions {
 	private double withdraw;
 	private double transfer;
 	private double amount;
+	private double currentBalance= balance + deposit;
 	
+	
+
+
 	Scanner scan = new Scanner(System.in);
 	double money=scan.nextDouble();
 	Transactions trans= new Transactions();
@@ -19,23 +23,27 @@ public class Transactions {
 		
 	}
 
-	public Transactions(int acctNum, double balance, double deposit, double withdraw, double transfer, double amount) {
+	
+	public Transactions(int acctNum, double balance, double deposit, double withdraw, double transfer, double amount,
+			double currentBalance) {
 		super();
 		this.acctNum = acctNum;
 		this.balance = balance;
 		this.deposit = deposit;
 		this.withdraw = withdraw;
 		this.transfer = transfer;
-		this.amount=amount;
+		this.amount = amount;
+		this.currentBalance = currentBalance;
 	}
+
 	
+		
 	
 	public void depositMoney() {
-		System.out.println("Deposit amount: ");
-		money=trans.getDeposit();
-		trans.setDeposit(money);
-		System.out.println("You deposited: " + money);
-		System.out.println("Current balance: " + balance);
+		System.out.println("Deposit amount:  ");
+		money=getDeposit();
+		setDeposit(money);
+		System.out.println( "Current balance: " +  currentBalance  );
 		
 	}
 
@@ -124,11 +132,19 @@ public class Transactions {
 	}
 
 
+	public double getCurrentBalance() {
+		return currentBalance;
+	}
+	public void setCurrentBalance(double currentBalance) {
+		this.currentBalance = currentBalance;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Transactions [acctNum=" + acctNum + ", balance=" + balance + ", deposit=" + deposit + ", withdraw="
-				+ withdraw + ", transfer=" + transfer + ", amount=" + amount + "]";
+				+ withdraw + ", transfer=" + transfer + ", amount=" + amount + ", currentBalance=" + currentBalance
+				+ ", scan=" + scan + ", money=" + money + ", trans=" + trans + "]";
 	}
 
 

@@ -1,5 +1,13 @@
 package com.revature.generics;
 
+/*Generics
+ * using a type as parameter
+ * write code that can handle diff types of objects
+ * use angle brackets <> to denote that something is a generic
+ * Allows us to ensure type safety
+ * adds stability and reusability to our code
+ * Placeholder(T,E,?,etc.)- use instead of an explicit type
+ */
 
 
 public class Gen1<T> {

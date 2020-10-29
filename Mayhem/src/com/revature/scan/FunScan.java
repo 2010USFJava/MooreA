@@ -17,7 +17,7 @@ public class FunScan {
 		System.out.println("What number would you like tp print?");
 		//int num=sc.nextInt();
 		String num=sc.nextLine();
-		//int myNum=(int)num;
+		int myNum= Integer.parseInt(num);
 		System.out.println(num + 4);
 		
 		
