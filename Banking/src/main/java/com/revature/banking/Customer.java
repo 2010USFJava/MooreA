@@ -1,8 +1,19 @@
 package com.revature.banking;
 
+
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Customer {
+import com.revature.util.Files;
+
+
+
+public class Customer implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1916810001364348076L;
 	
 	private String fName;
 	private String lName;
@@ -26,8 +37,11 @@ public class Customer {
 	Customer cust= new Customer();
 	Account act=new Account();
 
+	
+	
 	public Customer() {
-		
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
 	}
 
 	public Customer(String fName, String lName, String address, String city, String state, int zip, int phone,
@@ -45,6 +59,8 @@ public class Customer {
 		this.username = username;
 		this.pswd=pswd;
 		this.acctNum=acctNum;
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
 	}
 	
 		

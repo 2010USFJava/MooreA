@@ -1,0 +1,11 @@
+INDEX VERSION 1.131+C:\Users\Angie\OneDrive\Documents\RepoGit\MooreA\Banking\.metadata\.plugins\org.eclipse.jdt.core
+368569467.index
+2090482743.index
+1067094681.index
+3947342386.index
+2269508125.index
+3582547859.index
+2398710478.index
+841557208.index
+1994003918.index
+3186769582.index

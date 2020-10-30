@@ -1,6 +1,15 @@
 package com.revature.banking;
 
-public class Employee {
+import java.io.Serializable;
+
+import com.revature.util.Files;
+
+public class Employee implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6037693424248026866L;
 	
 	private int empID;
 	private String fName;
@@ -12,7 +21,8 @@ public class Employee {
 	Employee em = new Employee();
 	
 	public Employee() {
-	
+		Lists.employeeList.add(this);
+		Files.writeEmployeeFile(Lists.employeeList);
 	}
 
 

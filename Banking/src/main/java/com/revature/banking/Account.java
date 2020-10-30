@@ -1,9 +1,18 @@
 package com.revature.banking;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Account {
+import com.revature.util.Files;
+
+public class Account  implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5638897595989459355L;
+	
 	
 	public static  int acctNum;
 	private String open;
@@ -13,20 +22,23 @@ public class Account {
 	private String savings;
 	private String ind;
 	private String joint;
-	private String actType;
+	private String accountType;
 	
 	
 
 	Scanner in = new Scanner(System.in);
 	double amt=in.nextDouble();
-	static Account act = new Account();
+	static Account account = new Account();
 	
 	public Account() {
-	
+		Lists.accountList.add(this);
+		Files.writeAccountFile(Lists.accountList);
 	}
+	
+	
 
 		public Account(String open, String close, double balance, String checking, String savings, String ind,
-				String joint, String actType, Scanner in, double amt, Account act) {
+				String joint, String accountType, Scanner in, double amt, Account act) {
 			super();
 			this.open = open;
 			this.close = close;
@@ -35,10 +47,12 @@ public class Account {
 			this.savings = savings;
 			this.ind = ind;
 			this.joint = joint;
-			this.actType = actType;
+			this.accountType = accountType;
 			this.in = in;
 			this.amt = amt;
-			Account.act = act;
+			
+			Lists.accountList.add(this);
+			Files.writeAccountFile(Lists.accountList);
 		}
 
 
@@ -51,7 +65,7 @@ public class Account {
 		
 		
 		public void displayAcct() {
-			System.out.println(acctNum+ actType+ balance);
+			System.out.println(acctNum+ accountType+ balance);
 		}
 		
 		
@@ -60,10 +74,10 @@ public class Account {
 			System.out.println("Account balance: " + balance);
 		}
 		
-		public void getAcctType() {
-			if(actType==checking) {
+		public void getAccountType() {
+			if(accountType==checking) {
 				System.out.println("individual or joint ");
-				if(actType==ind) {
+				if(accountType==ind) {
 					
 				}
 			}
@@ -155,18 +169,18 @@ public class Account {
 
 
 
-	public static Account getAct() {
-		return act;
+	public static Account getAccount() {
+		return account;
 	}
-	public void setAct(Account act) {
-		this.act = act;
+	public void setAccount(Account account) {
+		Account.account = account;
 	}
 
-	public String actType() {
-		return actType;
+	public String accountType() {
+		return accountType;
 	}
-	public void setAcctType(String actType) {
-		this.actType = actType;
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
 	}
 
 
@@ -174,8 +188,8 @@ public class Account {
 	@Override
 	public String toString() {
 		return "Account [open=" + open + ", close=" + close + ", balance=" + balance + ", checking=" + checking
-				+ ", savings=" + savings + ", ind=" + ind + ", joint=" + joint + ", actType=" + actType + ", in=" + in
-				+ ", amt=" + amt + ", act=" + act + "]";
+				+ ", savings=" + savings + ", ind=" + ind + ", joint=" + joint + ", actType=" + accountType + ", in=" + in
+				+ ", amt=" + amt + ", act=" + account + "]";
 	}
 
 

@@ -2,15 +2,23 @@ package com.revature.banking;
 
 import java.util.Scanner;
 
-public interface Menu {
+import com.revature.util.Files;
+
+public class Menu {
+
 	
+	static Scanner scan = new Scanner(System.in);
+	static int option=scan.nextInt();
 	
+	static Account acct = new Account();
+	static Transactions trans = new Transactions();
+	static User user = new User();
+	
+
 	public static void MainMenu() {
 		
-		Scanner scan = new Scanner(System.in);
-		int option;
-		option=scan.nextInt();
-	
+		
+		
 		System.out.println("|------------------------------|");
 		System.out.println("|       Sunshine Bank          |");
 		System.out.println("|      Sign In/Register        |");
@@ -29,8 +37,7 @@ public interface Menu {
 		switch(option) {
 				
 				case 1:
-					System.out.println("You choose sign in");
-				SignIn();
+					user.getUser();
 				
 			    break;
 			case 2:
@@ -43,9 +50,9 @@ public interface Menu {
 				break;
 			
 			default:
-				System.out.println("Invalid Choice");
-				
-		scan.close();
+				System.out.println("Invalid choice, choose again");
+				Menu.MainMenu();
+				break;
 				}
 		}
 	
@@ -53,14 +60,13 @@ public interface Menu {
 	
 	
 	
-	public static  void SignIn() {
-		Account acct = new Account();
-		Transactions trans = new Transactions();
+	public static  void accountTrans() {
+		
 		
 		
 	System.out.println("|------------------------------|");
 	System.out.println("|       Sunshine Bank          |");
-	System.out.println("|          Sign In             |");
+	System.out.println("|     Account Transcations     |");
 	System.out.println("|      ---------------         |");
 	System.out.println("|      Choose an option:       |");
 	System.out.println("|    ---------------------     |");
@@ -70,10 +76,6 @@ public interface Menu {
 	System.out.println("|  	 4. Tranfer                |");
 	System.out.println("|    5. Exit                   |");
 	System.out.println("|------------------------------|");
-	
-	Scanner scan = new Scanner(System.in);
-	int option;
-	option=scan.nextInt();
 	
 	
 	
@@ -100,7 +102,6 @@ public interface Menu {
 	scan.close();
 	     }
 	  }
-	
 	
 	
 

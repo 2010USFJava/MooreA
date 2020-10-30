@@ -1,8 +1,16 @@
 package com.revature.banking;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class User {
+import com.revature.util.Files;
+
+public class User implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6495728662237426550L;
 	
 	public  String username;
 	public String pswd;
@@ -18,25 +26,28 @@ public class User {
 	
 	
 	public User() {
-		
+		Lists.userList.add(this);
+		Files.writeUserFile(Lists.userList);
 	}
 
 
 	public User(String username, String pswd) {
 		this.username = username;
 		this.pswd = pswd;
+		Lists.userList.add(this);
+		Files.writeUserFile(Lists.userList);
+	
 	}
 	
 	public void getUser() {
 	
 			System.out.println("Enter username");
-			ans=in.nextLine();
-			ans=getUsername();
-			ans=in.nextLine();
-			
+			String username=in.nextLine();
 			System.out.println("Enter password");
-			ans=in.nextLine();
-			ans=getPswd();
+			String pswd=in.nextLine();
+			
+			User user = new User(username, pswd);
+			//LogThis.
 			
 			cust.SignInInfo();
 			

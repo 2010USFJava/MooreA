@@ -1,8 +1,18 @@
 package com.revature.banking;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Transactions {
+import com.revature.exceptions.IncByNegNumException;
+
+import com.revature.util.Files;
+
+public class Transactions implements Serializable  {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -656984148756019488L;
 	
 	private int acctNum;
 	private double balance;
@@ -20,7 +30,8 @@ public class Transactions {
 	Transactions trans= new Transactions();
 	
 	public Transactions() {
-		
+		Lists.transList.add(this);
+		Files.writeTransactionsFile(Lists.transList);
 	}
 
 	
@@ -147,5 +158,11 @@ public class Transactions {
 				+ ", scan=" + scan + ", money=" + money + ", trans=" + trans + "]";
 	}
 
+	public void increaseAmount(int x) throws IncByNegNumException {
+		if(x<=0) {
+			throw new IncByNegNumException();
+		}
+		this.amount+=x;
+	}
 
 }
