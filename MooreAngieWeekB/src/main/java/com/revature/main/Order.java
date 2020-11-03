@@ -1,30 +1,19 @@
 package com.revature.main;
 
 import java.io.Serializable;
-import java.util.Scanner;
 
 import com.revature.util.Files;
 import com.revature.util.LogThis;
 import com.revature.util.OrderList;
-import com.revature.main.Menu;
 
-
-public class Order implements Serializable{
+public class Order implements Serializable  {
 	
+	String name;
+	int pizza;
+	int breadsticks;
+	int salad;
+	int drink;
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7149583495843619247L;
-	
-	private String name;
-	private int pizza;
-	private int  breadsticks;
-	private int salad;
-	private int drink;
-	
-	
-	static Scanner sc = new Scanner(System.in);
 	
 	public Order() {
 		super();
@@ -41,13 +30,19 @@ public class Order implements Serializable{
 		this.breadsticks = breadsticks;
 		this.salad = salad;
 		this.drink = drink;
-		
 		OrderList.orderList.add(this);
 		Files.writeOrderFile(OrderList.orderList);
-		LogThis.LogIt("info",  "Customer , " + this.getName()  + " , has placed a new order.");
+		LogThis.LogIt("info", "Customer , " + this.getName() + " has placed an order");
+		
 	}
 
 
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
 
 	public int getPizza() {
@@ -55,14 +50,6 @@ public class Order implements Serializable{
 	}
 	public void setPizza(int pizza) {
 		this.pizza = pizza;
-	}
-
-
-	public int getDrink() {
-		return drink;
-	}
-	public void setDrink(int drink) {
-		this.drink = drink;
 	}
 
 
@@ -82,11 +69,11 @@ public class Order implements Serializable{
 	}
 
 
-	public  String getName() {
-		return name;
+	public int getDrink() {
+		return drink;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setDrink(int drink) {
+		this.drink = drink;
 	}
 
 
@@ -95,9 +82,9 @@ public class Order implements Serializable{
 		return "Order [name=" + name + ", pizza=" + pizza + ", breadsticks=" + breadsticks + ", salad=" + salad
 				+ ", drink=" + drink + "]";
 	}
-
-
+	
+	
+	
+	
 
 }
-
-

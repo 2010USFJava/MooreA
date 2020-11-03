@@ -3,7 +3,7 @@ package com.revature.menu;
 import java.util.Scanner;
 
 import com.revature.beans.Warrior;
-
+import com.revature.service.Fight;
 import com.revature.util.LogThis;
 import com.revature.util.Roster;
 
@@ -95,10 +95,12 @@ public class Menu {
                 startMenu();
                 break;
             case "n":
+            	System.out.println("Thank you for playing, goodbye.");
                 break;
             default:
                 System.out.println("Invalid input.");
 		
+                
 		startMenu();
 		
 	}

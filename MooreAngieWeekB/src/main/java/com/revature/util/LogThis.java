@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 public class LogThis {
 	
+
 	static Logger logger = LogManager.getLogger();
 	
 	public static void LogIt(String level, String message) {
@@ -27,8 +28,10 @@ public class LogThis {
 		case "trace":
 			logger.trace(message);
 		default:
-			System.err.println("incorrect log");
+			System.err.println("invalid");
 		}
 	}
 
 }
+
+

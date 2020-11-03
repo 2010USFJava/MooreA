@@ -31,7 +31,7 @@ public class Warrior implements Serializable {
 		this.attackPower = attackPower;
 		Roster.warriorList.add(this);
 		FileStuff.writeWarriorFile(Roster.warriorList);
-		LogThis.LogIt("info",  "A new warrior," + this.getName() + " ,  has entered the arena!");
+		LogThis.LogIt("info",  "A new warrior ," + this.getName() + " ,  has entered the arena!");
 	}
 
 

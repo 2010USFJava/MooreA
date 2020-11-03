@@ -11,12 +11,10 @@ import java.util.List;
 
 import com.revature.main.Order;
 
-
 public class Files {
 	
 	public static final String orderFile="orderList.txt";
-
-	//write method
+	
 	public static void writeOrderFile(List<Order> orderList) {
 		try {
 			ObjectOutputStream objectOut = new ObjectOutputStream (new FileOutputStream(orderFile));
