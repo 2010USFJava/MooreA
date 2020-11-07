@@ -3,7 +3,6 @@ package com.revature.bank;
 import java.io.Serializable;
 import java.util.Scanner;
 
-import com.revature.exceptions.IncByNegNumException;
 import com.revature.menu.Menu;
 import com.revature.util.Files;
 import com.revature.util.Lists;
@@ -18,18 +17,14 @@ public class Transactions implements Serializable  {
 	private static final long serialVersionUID = 1567602479221022768L;
 	
 	
-	private double balance;
-	private double deposit;
-	private double withdraw;
-	private double transfer;
-	private double amount;
-	private double currentBalance;
-	private double transaction;
-	
-	
+	private static double balance;
+	private static double deposit;
+	private static double withdraw;
+	private static double transfer;
 
-
-	Scanner scan = new Scanner(System.in);
+	private static double transaction;
+	
+	static Scanner scan = new Scanner(System.in);
 	double money=scan.nextDouble();
 	Transactions trans= new Transactions();
 	
@@ -40,49 +35,60 @@ public class Transactions implements Serializable  {
 	}
 
 	
-	public Transactions(double balance, double deposit, double withdraw, double transfer, double amount,
-			double currentBalance, double transaction) {
+	public Transactions(double balance, double deposit, double withdraw, double transfer,
+			 double transaction) {
 		super();
 		
 		this.balance = balance;
 		this.deposit = deposit;
 		this.withdraw = withdraw;
 		this.transfer = transfer;
-		this.amount = amount;
-		this.currentBalance = currentBalance;
+		
+		
 		this.transaction=transaction;
 		Lists.transList.add(this);
 		Files.writeTransactionsFile(Lists.transList);
 		LogThis.LogIt("info" , " Transaction: " + getTransaction() +  " was made");
 	}
 
-	
+	public static void checkBalance() {
+		Lists.findAccountByAccountNum(Customer.accountNum);
+		
+		System.out.println(balance);
+		LogThis.LogIt("info",  "balance is: " + balance);
+		Menu.accountTrans();
+	}
 
-	public void depositMoney() {
+	public static void depositMoney() {
+		Lists.findAccountByAccountNum(Customer.accountNum);
+		
 		System.out.println("Enter deposit amount:  ");
-		money=getDeposit();
-		setDeposit(money);
-		currentBalance=balance+deposit;
-		System.out.println( "Current balance: " +  currentBalance  );
-		System.out.println(Lists.transList.toString());
+		double money=scan.nextInt();
+		deposit=money;
+		transaction=balance+deposit;
+		System.out.println("current balance " + transaction);
+		LogThis.LogIt("info", "Current balance: " +  transaction  );
+		
 		Menu.accountTrans();
 		
 	}
 
-	public void withdrawMoney() {
-		System.out.println("Enter Withdrawal amount: ");
-		money=trans.getWithdraw();
-		trans.setWithdraw(money);
+	public static  void withdrawMoney() { 
+		Lists.findAccountByAccountNum(Customer.accountNum);
 		
-		if(money<=balance) {
-			System.out.println("You withdrew: " + money);
-			LogThis.LogIt("info", "withdrawl amount: " + getWithdraw()  );
-			System.out.println("Current balance: " + balance);
-			System.out.println(Lists.transList.toString());
+		System.out.println("Enter Withdrawal amount: ");
+		double money=scan.nextInt();
+		money=withdraw;
+			if(withdraw<=balance) {
+				transaction= balance-withdraw;
+				
+			LogThis.LogIt("info", "withdrawl amount: " + withdraw );
+			LogThis.LogIt("info", "Current balance: " + transaction);
+			
 		}else {
-			System.out.println("Insufficient Funds");
-			System.out.println("Current balance: " + balance + "return to transaction window");
-			System.out.println(Lists.transList.toString());
+			LogThis.LogIt("info","Insufficient Funds" );
+			LogThis.LogIt("info", "Current balance: " + balance + "return to transaction window");
+			
 			Menu.accountTrans();
 		}
 			
@@ -90,25 +96,31 @@ public class Transactions implements Serializable  {
 		
 	}
 	
-	public void transferMoney() {
+	public static void transferMoney() {
+		// if more than one account ask for account number, if match key to value then get amount
+		Customer.getAccountNum();
+		LogThis.LogIt("info", "account number: " + Customer.accountNum);
+		getBalance();
+		System.out.println("Transfer from account number : ");
+		int accountNum;
 		System.out.println("Transfer amount:");
-		money=trans.getTransfer();
-		trans.setTransfer(money);
-		if(money<=balance) {
-			System.out.println("You transfered: " + money);
-			System.out.println("Current balance: " + balance);
-			System.out.println(Lists.transList.toString());
+		double money=scan.nextInt();
+		money=transfer;
+		if(transfer<=balance) {
+			LogThis.LogIt("info", "You transfered: " + transfer);
+			LogThis.LogIt("info", "Current balance: " + balance);
+			
 		}else {
-			System.out.println("Insufficient Funds");
-			System.out.println("Current balance: " + balance + "return to transaction menu");
-			System.out.println(Lists.transList.toString());
+			LogThis.LogIt("info", "Insufficient Funds");
+			LogThis.LogIt("info", "Current balance: " + balance + "return to transaction menu");
+			
 			Menu.accountTrans();
 		}
 		
 	}
 	
 
-	public double getBalance() {
+	public static double getBalance() {
 		return balance;
 	}
 	public void setBalance(double balance) {
@@ -126,7 +138,7 @@ public class Transactions implements Serializable  {
 
 
 
-	public double getWithdraw() {
+	public static double getWithdraw() {
 		return withdraw;
 	}
 	public void setWithdraw(double withdraw) {
@@ -135,43 +147,19 @@ public class Transactions implements Serializable  {
 
 
 
-	public double getTransfer() {
+	public static double getTransfer() {
 		return transfer;
 	}
 	public void setTransfer(double transfer) {
 		this.transfer = transfer;
 	}
 
-	
-	
-
-	public double getAmount() {
-		return amount;
-	}
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-
-
-	public double getCurrentBalance() {
-		return currentBalance;
-	}
-	public void setCurrentBalance(double currentBalance) {
-		this.currentBalance = currentBalance;
-	}
 
 	public double getTransaction() {
 		return transaction;
 	}
 	public void setTransaction() {
 		this.transaction=transaction;
-	}
-
-	public void increaseAmount(int x) throws IncByNegNumException{
-		if(x<=0) {
-			throw new IncByNegNumException();
-		}
-		this.amount+=x;
 	}
 
 }

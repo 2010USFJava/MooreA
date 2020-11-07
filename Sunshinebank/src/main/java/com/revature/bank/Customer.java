@@ -1,14 +1,10 @@
 package com.revature.bank;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
-import com.revature.menu.Menu;
 import com.revature.util.Files;
 import com.revature.util.Lists;
 import com.revature.util.LogThis;
@@ -20,39 +16,90 @@ public class Customer implements Serializable{
 	 */
 	private static final long serialVersionUID = -6480484755576229315L;
 	
-	
-	private static  String username;
+	public static int accountNum=0;
+	static  String username;
 	private static  String pswd;
-	private  String email;
-	private  String fName;
-	private  String lName;
-	private  String address;
-	private  String city;
-	private  String state;
-	private  int zip;
-	private  int phone;
-	private  int ssn;
-	private  static int accountNum;
+	private  static String email;
+	private  static  String fName;
+	private  static String lName;
+	private  static String address;
+	private  static String city;
+	private  static String state;
+	private  static  int zip;
+	private  static int phone;
+	private  static int ssn;
+	
 	
 	static Scanner in = new Scanner(System.in);
 	
-	Account account=new Account();
 
 	public Customer() {
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
 		Lists.customerList.add(this);
 		Files.writeCustomerFile(Lists.customerList);
 	}
 	
+	public Customer(String username) {
+		this(username, pswd, accountNum,  email, fName, lName, address, city, state, zip, phone, ssn);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
+
 	public Customer(String username, String pswd) {
-		this.username = username;
-		this.pswd = pswd;
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
 		Lists.customerList.add(this);
 		Files.writeCustomerFile(Lists.customerList);
 	}
 
-
+	public Customer(String username, String pswd, int accountNum) {
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
 	
-	public Customer(String username, String pswd, String email, String fName, String lName, String address, String city,
+	public Customer(String username, String pswd, int accountNum, String email) {
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
+	
+	public Customer(String username, String pswd, int accountNum, String email, String fName) {
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
+	
+	public Customer(String username, String pswd, int accountNum, String email, String fName, String lName) {
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
+	
+	public Customer(String username, String pswd, int accountNum, String email, String fName, String lName, String address, String city) {
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
+	
+	public Customer(String username, String pswd, int accountNum, String email, String fName, String lName, String address, String city, String state) {
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
+	
+	public Customer(String username, String pswd, int accountNum, String email, String fName, String lName, String address, String city, String state, int zip) {
+		this(username, pswd, accountNum, email, fName, lName, address, city, state, zip, phone, ssn);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
+	
+	public Customer(String username, String pswd, int accountNum, String email, String fName, String lName, String address, String city, String state, int zip, int phone) {
+		this(username, pswd,accountNum,  email, fName, lName, address, city, state, zip);
+		Lists.customerList.add(this);
+		Files.writeCustomerFile(Lists.customerList);
+	}
+	
+	public Customer(String username, String pswd, int accountNum, String email, String fName, String lName, String address, String city,
 			String state, int zip, int phone, int ssn) {
 		super();
 		this.username = username;
@@ -66,41 +113,48 @@ public class Customer implements Serializable{
 		this.zip = zip;
 		this.phone = phone;
 		this.ssn = ssn;
+		this.accountNum=accountNum;
 		
 		Lists.customerList.add(this);
 		Files.writeCustomerFile(Lists.customerList);
-		LogThis.LogIt("info"," Customer ......");
+		LogThis.LogIt("info"," Customer "  + getfName() + " " + getlName() +  " , was created");
 	}
 	
-
-	public void createAccountNum() {
-		int min=25;
-		int max=250;
-		int accountNum = (int)(Math.random() * (max - min + 1) + min);
-		
-		LogThis.LogIt("info", " Account number: " + accountNum + " was created");
+	public Customer( String email, String fName, String lName, String address, String city,
+			String state, int zip, int phone, int ssn) {
+		this.email=email;
+		this.fName = fName;
+		this.lName = lName;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phone = phone;
+		this.ssn = ssn;
 	}
-	
-	
-//		User user1= new User(inputUser, inputPswd );
-//		Map<String, User> userPwdMap = new HashMap<>();
-//		userPwdMap.put(user1.getUsername(), user1);
-	
-	
-	//https://www.baeldung.com/java-hashmap
 
-//	Map<String, Customer> acctNum = new HashMap<>();
-//	Customer
-//	
-//		LogThis.LogIt("info", " key is:  "  +  " and value is:  " );
-//		System.out.println(Lists.customerList.toString());
-//		
-//	
-//			
+	public static  int createAccountNum(String username) {
+		getUsername();
+		List<Integer> actNum = new ArrayList<Integer>();
+			int min=10;
+			int max=500;
+			if (accountNum==0  ) {
+				accountNum = (int)(Math.random() * (max - min + 1) + min);
+				
+			} 
+			for (int i = 0; i < actNum.size(); i++) {
+				actNum.add(accountNum);
+				System.out.println(actNum.get(i) + " ");
+				LogThis.LogIt("info",  "account number: " + accountNum + "was created");
+			}
+			return accountNum;
+		}
 		
 	
 
-	public void displayCustomerInfo() {
+	public static void displayCustomerInfo(String username) {
+		
+		Lists.findAccountByUsername(username);
 		System.out.println(fName +lName +address +city+state+ zip+ phone+ssn+email+ username+accountNum);
 	}
 	
@@ -190,7 +244,7 @@ public class Customer implements Serializable{
 		return username;
 	}
 	public void setUsername(String username) {
-		Customer.username = username;
+		this.username = username;
 	}
 
 	
@@ -198,7 +252,7 @@ public class Customer implements Serializable{
 		return pswd;
 	}
 	public void setPswd(String pswd) {
-		Customer.pswd = pswd;
+		this.pswd = pswd;
 	}
 
 
@@ -206,17 +260,11 @@ public class Customer implements Serializable{
 	public static int getAccountNum() {
 		return accountNum;
 	}
-	public static void setAccountNum(int accountNum) {
-		Customer.accountNum = accountNum;
+	public  void setAccountNum(int accountNum) {
+		this.accountNum = accountNum;
 	}
 
 
-	@Override
-	public String toString() {
-		return "Customer [username=" + username + ", pswd=" + pswd + ", email=" + email + ", fName=" + fName
-				+ ", lName=" + lName + ", address=" + address + ", city=" + city + ", state=" + state + ", zip=" + zip
-				+ ", phone=" + phone + ", ssn=" + ssn + "]";
-	}
 }
 
 

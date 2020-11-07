@@ -1,7 +1,10 @@
 package com.revature.bank;
 
 import java.io.Serializable;
-
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
 
 import com.revature.util.Files;
 import com.revature.util.Lists;
@@ -17,61 +20,136 @@ public class Employee implements Serializable  {
 	private static final long serialVersionUID = -7819128785344472626L;
 	
 	
-	private String fName;
-	private String lName;
-	private String type;
-	private String emp;
-	private String admin;
-	
-	Employee employee = new Employee();
-	
+	private static String fName;
+	private static String lName;
+	private static String type;
+	private List<String> keys;
 	
 	
 	public Employee() {
-		
+		this(fName, lName, type);
+		Lists.employeeList.add(this);
+		Files.writeEmployeeFile(Lists.employeeList);
+	}
+	
+	public Employee(String fName) {
+		this(fName, lName, type);
+		Lists.employeeList.add(this);
+		Files.writeEmployeeFile(Lists.employeeList);
+	}
+	
+	public Employee(String fName, String lName) {
+		this(fName, lName, type);
 		Lists.employeeList.add(this);
 		Files.writeEmployeeFile(Lists.employeeList);
 	}
 	
 	
-	
-	public Employee(String fName, String lName, String type, String emp, String admin) {
+	public Employee(String fName, String lName, String type) {
 		super();
 		
 		this.fName = fName;
 		this.lName = lName;
 		this.type = type;
-		this.emp = emp;
-		this.admin = admin;
+		
 		Lists.employeeList.add(this);
 		Files.writeEmployeeFile(Lists.employeeList);
-		LogThis.LogIt("info", "message");
+		LogThis.LogIt("info", "Employee " + getfName() + " " +getlName() +  " is an "  + getType());
 		
 		
 	}
+	
 
-	public void typeOfEmp() {
+	public Employee addKeys(Employee employee) {
+		this.keys.addAll(employee.getKeys());
+		return this;
+	}
+	
+	
+	//username=fName.lName
+	
+	public static void makeEmpUser() {
+		Scanner scan = new Scanner (System.in);
 		
-		if(type==admin) {
-		
-			System.out.println("Close/cancel  account");
-			System.out.println("Deny opening of  account");
-			System.out.println("approve  opening of account");
-			System.out.println("View customer info");
-			System.out.println("withdraw");
-			System.out.println("deposit");
-			System.out.println("transfer");
+		System.out.println("enter employee first name");
+			fName=scan.nextLine();
+			System.out.println("enter employee last name");
+			lName=scan.nextLine();
+			String username= fName+ "." + lName;
+			System.out.println("enter password");
+			String pswd=scan.nextLine();
 			
-		}else if (type==emp) {
+			Employee empUser = new Employee(fName, lName);
+			LogThis.LogIt("info", "employee: " + fName+ " " + lName + " username: " + username );
 			
-			System.out.println("Deny opening of account");
-			System.out.println("approve opening of account");
-			System.out.println("View customer info");
-		}else 
-			System.out.println("Invalid choice");
+			HashMap<String, String> emMap = new HashMap<String, String>();
+			emMap.put(username, pswd);
+			emMap.get(username);
+			LogThis.LogIt("info", "HashMap for employee :  " + empUser + " is key: " + username + " - password: " + pswd);
+			
 			
 	}
+	public static void empLogIn() {
+		Scanner scan= new Scanner(System.in);
+		
+		System.out.println("Enter username");
+		String name=scan.nextLine();
+		System.out.println("Enter password");
+		String pswd=scan.nextLine();
+		
+		Lists.findEmpUser(name);
+		System.out.println();
+	}
 
+//	public void typeOfEmp() {
+//		
+//		
+//		if(type==admin) {
+//		adminRights();
+//			
+//		}else if (type==emp) {
+//		empRights();
+//		}else 
+//			System.out.println("Invalid choice");
+//			
+//	}
+//	
+	/* Admin should be able to view all customers info:
+	 *  approving/denying accounts
+	 *  withdrawing. depositing, transferring money
+	 *  Canceling account
+	 *  */
+
+	public static void adminRights() {
+		Customer.displayCustomerInfo(Customer.username);
+		Account.openAccount();
+		Account.closeAccount();
+		Account.denyAccount();
+		Account.approveAccount();
+		Account.cancelAccount();
+		Transactions.withdrawMoney();
+		Transactions.depositMoney();
+		Transactions.transferMoney();
+		
+		
+	}
+	
+	/*
+	 * *  employee should be able to view account balances and 
+ *  personal info, approve or deny opening of an account
+ */
+
+	
+	public static void empRights() {
+		Customer.displayCustomerInfo();
+		Account.openAccount();
+		Account.closeAccount();
+		Account.denyAccount();
+		Account.approveAccount();
+		Transactions.withdrawMoney();
+		Transactions.depositMoney();
+		Transactions.transferMoney();
+	}
 
 
 	public String getfName() {
@@ -98,38 +176,6 @@ public class Employee implements Serializable  {
 	}
 
 
-	public String getEmp() {
-		return emp;
-	}
-	public void setEmp(String emp) {
-		this.emp = emp;
-	}
-
-
-	public String getAdmin() {
-		return admin;
-	}
-	public void setAdmin(String admin) {
-		this.admin = admin;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Employee [ fName=" + fName + ", lName=" + lName + ", type=" + type + ", emp=" + emp
-				+ ", admin=" + admin + "]";
-	}
-
-
 }
-/* Admin should be able to view all customers info:
- *  approving/denying accounts
- *  withdrawing. depositing, transferring money
- *  Canceling accounts
- *  
- *  employee should be able to view account balances and 
- *  personal info, approve or deny opening of an account
- */
-
 
 

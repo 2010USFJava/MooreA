@@ -17,9 +17,9 @@ public class Account implements Serializable {
 	private static final long serialVersionUID = 2158840141977831459L;
 	
 	
-	private String open;
-	private String close;
-	private String status;
+	public static  String open;
+	public static  String close;
+	public static String status;
 	
 	
 	public Account() {
@@ -29,57 +29,65 @@ public class Account implements Serializable {
 	}
 
 	public Account(String open, String close, String status) {
-		super();
-		this.open = open;
-		this.close = close;
+		this.open=open;
+		this.close=close;
 		this.status=status;
 		
-
 		Lists.accountList.add(this);
 		Files.writeAccountFile(Lists.accountList);
-		LogThis.LogIt("info", "Account was opened/ closed" );
-		
+		LogThis.LogIt("info", "Account status is " );
 	}
 	
 		public static  void openAccount() {
 			Customer.getUsername();
-			for (String key: map.keySet() );
-				Customer customer = map.get(key):
+			
+			//if(username)
 		}
 		
-//	public String accountStatus() {
-//		if(status==close) {
-//			
-//		}
-//	}
-//	
-	
+		public static void  getAcctStatus(){
+			
+		}
+
+		public static void closeAccount() {
+			
+		}
+		public static void denyAccount() {
+			
+		}
+
+		public static void approveAccount() {
+			
+		}
+		
+		public static void cancelAccount() {
+			
+		}
 
 	public String getOpen() {
 		return open;
 	}
 	public void setOpen(String open) {
-		this.open = open;
+		Account.open = open;
 	}
 
 	public String getClose() {
 		return close;
 	}
 	public void setClose(String close) {
-		this.close = close;
+		Account.close = close;
 	}
 	
 	public String getSatus() {
 		return status;
 	}
 	public void setSatus() {
-		this.status=status;
+		Account.status=status;
 	}
 	
 
 	@Override
 	public String toString() {
-		return "Account [open=" + open + ", close=" + close + "]";
+		return "Account [open=" + open + ", close=" + close + ", status=" + status +"]";
 	}
 	
 

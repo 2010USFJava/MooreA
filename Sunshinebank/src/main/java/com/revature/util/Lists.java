@@ -23,50 +23,35 @@ public class Lists {
 		public static List<Menu> menuList= new ArrayList<Menu>();
 		public static List<Account> accountList= new ArrayList<Account>();
 		
+		
 			public static Customer findPassword(String inputPswd) {
 			
 			for(int i =0; i < customerList.size(); i++) {
 				String password = customerList.get(i).getPswd();
 				if(password.equals(inputPswd)) {
 					return customerList.get(i);
-					
 				}
-			
-			LogThis.LogIt("info", "password "  + Customer.getPswd() + " was not found");
-			System.out.println("password not found");
-		
+				
 		}
+			LogThis.LogIt("info", "password "  + Customer.getPswd() + " was not found");
 			return null;
 	}
 			
 
-			public static Customer findAccountByUsername(String inputUser) {
+			public static Customer findAccountByUsername(String inputname) {
 			
 			for(int i =0; i < customerList.size(); i++) {
-				String name = customerList.get(i).getUsername();
-				if(name.equals(inputUser)) {
+				String username = customerList.get(i).getUsername();
+				if(username.equals(inputname)) {
 					return customerList.get(i);
-					
 				}
-			
-				LogThis.LogIt("info", "username"  + Customer.getUsername() + " was not found");
-			System.out.println("username not found");
-		
+				
+			LogThis.LogIt("info", "username"  + Customer.getUsername() + " was not found");
 		}
 			return null;
 	}
-		//to remove values based on key -- 
-//		number.remove(3);
-//	      System.out.println("Map key and values after removal:");
-//	      Set set2 = number.entrySet();
-//	      Iterator iterator2 = set2.iterator();
-//	      while(iterator2.hasNext()) {
-//	          Map.Entry mentry2 = (Map.Entry)iterator2.next();
-//	          System.out.print("Key is: "+mentry2.getKey() + " & Value is: ");
-//	          System.out.println(mentry2.getValue());
-//	       }
-		
-	public static Customer findAccountByAccountNum(Integer actNum) {
+	
+	public static Customer findAccountByAccountNum(int actNum) {
 		
 		for(int i =0; i < customerList.size(); i++) {
 			customerList.get(i);
@@ -74,29 +59,34 @@ public class Lists {
 			if(acc.equals(actNum)) {
 				return customerList.get(i);
 			}
+			LogThis.LogIt("info", " account number: " + acc + " was not found");
+			System.out.println("account number not found");
 		}
-		
-		System.out.println("account number not found");
+	
 		
 		return null;
 	}
+	
+	
 		
-	public static Employee findEmplByKey(String emType) {
+	public static Employee findEmpUser(String name) {
 		
 		for(int i =0; i < employeeList.size(); i++) {
-			String typeEm = employeeList.get(i).getType();
-			if(emType.equals(typeEm)) {
+			String emUser = employeeList.get(i).getType();
+			if(emUser.equals(name)) {
 				return employeeList.get(i);
+				
 			}
+			LogThis.LogIt("info", " employee username: " +  emUser + " found");
+			
 		}
 		
 		System.out.println("employee  not found");
 		
 		return null;
 	}
-
-		
-	}
+	
+}	
 
 
 	

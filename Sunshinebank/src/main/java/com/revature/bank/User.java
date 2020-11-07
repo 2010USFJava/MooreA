@@ -56,25 +56,25 @@ public class User implements Serializable {
 	
 
 	
-	public void searchForUser() {
+	public static void searchForUser() {
 		
 		System.out.println("Enter username");
-		String inputUser=in.nextLine();
+		String inputname=in.nextLine();
 		
 		System.out.println("Enter password");
 		String inputPswd=in.nextLine();
 
-		Lists.findAccountByUsername(inputUser);
+		Lists.findAccountByUsername(inputname);
 		Lists.findPassword(inputPswd);
 		
-		User user1= new User(inputUser, inputPswd );
+		User user1= new User(inputname, inputPswd );
 		
-		if(inputUser==inputPswd) {
+		if(inputname==inputPswd) {
 			LogThis.LogIt("info",  " Username:  " + user1.getUsername() + " logged in");
 		Menu.accountTrans();
 		}else {
 			LogThis.LogIt("info", " username and password do not match, try again");
-			searchForUser();
+			User.searchForUser();
 		}
 		
 		

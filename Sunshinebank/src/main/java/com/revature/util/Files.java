@@ -24,6 +24,7 @@ public class Files {
 	public static final String userFile="userList.txt";
 	
 	
+	
 	public static void writeCustomerFile(List<Customer> custList) {
 		try {
 			ObjectOutputStream objectOut = new ObjectOutputStream (new FileOutputStream(customerFile));
@@ -217,6 +218,6 @@ public class Files {
 		
 	}
 	
-
+	
 	
 }
