@@ -20,12 +20,15 @@ public class Customer implements Serializable{
 	public static int accountNum;
 	public static  String username;
 	public static  String pswd;
-	private  static String email;
 	private  static  String fName;
 	private  static String lName;
 	
 	
 	static Scanner in = new Scanner(System.in);
+	List<Customer> customer= new ArrayList<Customer>();
+	
+	
+	
 	
 	
 
@@ -57,35 +60,25 @@ public class Customer implements Serializable{
 		
 	}
 	
-	public Customer(String fName, String lName, String email) {
-		this.fName=fName;
-		this.lName=lName;
-		this.email=email;
-		
-		Lists.customerList.add(this);
-		Files.writeCustomerFile(Lists.customerList);
-		LogThis.LogIt("info"," Customer username: " + getUsername() +  " with account number" + getAccountNum()+  " , logged in ");
-		
-	}
 	
-	public Customer(String username, String pswd,   String fName, String lName, String email) {
+	public Customer(String username, String pswd,   String fName, String lName) {
 		this.username=username;
 		this.pswd=pswd;
 		this.accountNum=accountNum;
 		this.fName=fName;
 		this.lName=lName;
-		this.email=email;
+		
 		Lists.customerList.add(this);
 		Files.writeCustomerFile(Lists.customerList);
 	}
 	
 	
-	public Customer(String username, String pswd,   String fName, String lName, String email, int accountNum) {
+	public Customer(String username, String pswd,   String fName, String lName,  int accountNum) {
 		this.username=username;
 		this.pswd=pswd;
 		this.fName=fName;
 		this.lName=lName;
-		this.email=email;
+		
 		this.accountNum=accountNum;
 		Lists.customerList.add(this);
 		Files.writeCustomerFile(Lists.customerList);
@@ -109,17 +102,20 @@ public class Customer implements Serializable{
 	}
 
 		
-	
+	public static  Customer getCustomer( Customer cust) {
+		Customer.getCustomer(cust);
+		return cust;
+	}
 
 	public static void displayCustomerInfo() {
 		
-		
-		System.out.println(fName +lName +email+ username+accountNum);
-		LogThis.LogIt("info",  " Username: " + Customer.username + " displayed customer info");
+		//getCustomer(cust);
+		System.out.println( );
+		LogThis.LogIt("info",  " customer profile:  " );
 	}
 	
 	
-	public String getfName() {
+	public static String getfName() {
 		return fName;
 	}
 	public void setfName(String fName) {
@@ -128,20 +124,11 @@ public class Customer implements Serializable{
 
 
 
-	public String getlName() {
+	public static String getlName() {
 		return lName;
 	}
 	public void setlName(String lName) {
 		this.lName = lName;
-	}
-
-
-
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 

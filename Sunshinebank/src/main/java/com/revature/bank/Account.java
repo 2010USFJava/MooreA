@@ -43,14 +43,15 @@ public class Account implements Serializable {
 	
 
 		public static  void OpenAccount() {
-			Customer.getUsername();
-			double openingbalance=0;
+			Customer.getAccountNum();
+			Customer.displayCustomerInfo();
+			float openingbalance=0;
 			
 			System.out.println("How much is the initial deposit: ");
-			double deposit=scan.nextDouble();
-			double currentbalance=openingbalance+deposit;
+			float deposit=scan.nextFloat();
+			float currentbalance=openingbalance+deposit;
 			Transactions  newT = new Transactions();
-			
+			Transactions.setBalance(deposit);
 			LogThis.LogIt("info",  " balance: $ " + currentbalance);
 			Menu.accountTrans();
 			
@@ -60,20 +61,20 @@ public class Account implements Serializable {
 		
 		
 		public static void denyAccount() {
-			Customer.getUsername();
+			Customer.getAccountNum();
 			
 				System.out.println("account denied");
 				LogThis.LogIt("info",  " Username; " + Customer.username + " account denied");
 			}
 		
 		public static void approveAccount() {
-			Customer.getUsername();
+			Customer.getAccountNum();
 			System.out.println("account approved");
 			LogThis.LogIt("info",  " Username; " + Customer.username + " account approved");
 		}
 		
 		public static void cancelAccount() {
-			Customer.getUsername();
+			Customer.getAccountNum();
 			System.out.println("account was closed and cancelled");
 			LogThis.LogIt("info",  " Username; " + Customer.username + " account was closed and cancelled");
 		}

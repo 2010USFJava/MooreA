@@ -23,14 +23,14 @@ public interface GetUser {
 		String fName=scan.nextLine();
 		System.out.println("enter last name");
 		String lName=scan.nextLine();
-		System.out.println("enter email");
-		String email=scan.nextLine();
+		
 		Customer.createAccountNum(username);
 		
-		Customer cust = new Customer(username, password, fName, lName, email );
-		LogThis.LogIt("info", "Customer profile for " + fName + " " + lName +
-				"has been created with username: "+ username);
-			Map<String, String> cMap = new HashMap<>();
+		Customer cust = new Customer(username, password, fName, lName, Customer.accountNum);
+		cust.equals(cust);
+		LogThis.LogIt("info", "Customer profile was created:  "  + username + " " +password + " "+  fName + " " + lName + " " + Customer.accountNum);
+			System.out.println("Customer profile created");
+		Map<String, String> cMap = new HashMap<>();
 			cMap.put(username, password);
 			//cMap.get(username);
 				System.out.println(cMap);
@@ -69,8 +69,9 @@ public interface GetUser {
 				String lName1=scan.nextLine();
 				System.out.println("enter email");
 				String email1=scan.nextLine();
-			Customer cust1= new Customer(fName, lName, email);
+			Customer cust1= new Customer(fName, lName);
 			Menu.custSignIn();
+			
 			}else if(ans=="n"){
 				Menu.custSignIn();
 			}else {

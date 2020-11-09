@@ -22,7 +22,7 @@ public class Transactions implements Serializable  {
 	public static float withdraw;
 	public static float transfer;
 
-	private static float transaction;
+	public static float transaction;
 	
 	static Scanner scan = new Scanner(System.in);
 	double money=scan.nextDouble();
@@ -39,28 +39,29 @@ public class Transactions implements Serializable  {
 			 float transaction) {
 		super();
 		
-		this.balance = balance;
-		this.deposit = deposit;
-		this.withdraw = withdraw;
-		this.transfer = transfer;
-		this.transaction=transaction;
+		Transactions.balance = balance;
+		Transactions.deposit = deposit;
+		Transactions.withdraw = withdraw;
+		Transactions.transfer = transfer;
+		Transactions.transaction=transaction;
 		Lists.transList.add(this);
 		Files.writeTransactionsFile(Lists.transList);
-		LogThis.LogIt("info" , " Transaction: " + getTransaction() +  " was made");
+		LogThis.LogIt("info" , " Transaction: " + getTransaction() +  " was ......");
 	}
 
 
 	public static  void applyForAccount() {
-		Lists.findAccountNum();
+		Customer.getAccountNum();
 		System.out.println(Customer.accountNum + " accountNum");
 		System.out.println("hello, "+ Customer.username);
 		System.out.println("Thank you, we will notify you of our decision");
-		LogThis.LogIt("info",  " Username; " + Customer.username + "applied for account");
+		LogThis.LogIt("info" , " Transaction: " + getTransaction() +  " was made");
 		Menu.accountTrans();
 		
 	}
 	
 	public static void closeAccount() {
+		Customer.getAccountNum();
 		System.out.println(Customer.getUsername());
 		System.out.println(getBalance());
 		System.out.println(balance);
@@ -69,32 +70,35 @@ public class Transactions implements Serializable  {
 		LogThis.LogIt("info",  " Username; " + Customer.username + " account is closed");
 		
 	}
+
 	public static void checkBalance() {
-		Lists.findAccountNum();
 		
+		Customer.getAccountNum();
+		getBalance();
 		System.out.println(balance);
 		
 		LogThis.LogIt("info",  "balance is: " + balance);
-		LogThis.LogIt("info",  " Username; " + Customer.username + " checked balance: $  " + balance );
+		
 		Menu.accountTrans();
 	}
 
 	public static void depositMoney() {
-		Lists.findAccountNum();
+		Customer.getAccountNum();
 		getBalance();
 		System.out.println(" balance: $ " + balance+ "Enter deposit amount:  ");
 		 deposit=scan.nextInt();
 		transaction =balance+deposit;
 		setBalance(transaction);
-		System.out.println("current balance $ " + transaction);
+	
 		LogThis.LogIt("info", "Current balance: $ " +  transaction  );
+		LogThis.LogIt("info" , " Transaction: " + getTransaction() +  " was deposited");
 		
 		Menu.accountTrans();
 		
 	}
 
 	public static  void withdrawMoney() {
-		Lists.findAccountNum();
+		Customer.getAccountNum();
 		getBalance();
 		System.out.println("Balance: $  " + balance + "  Enter Withdrawal amount: ");
 		withdraw=scan.nextInt();
@@ -104,6 +108,7 @@ public class Transactions implements Serializable  {
 				
 			LogThis.LogIt("info", "withdrawl amount: $ " + withdraw );
 			LogThis.LogIt("info", "Current balance: $ " + transaction);
+			LogThis.LogIt("info" , " Transaction: " + getTransaction() +  " was withdrawn");
 			setBalance(transaction);
 			Menu.accountTrans();
 		}else {
@@ -119,24 +124,31 @@ public class Transactions implements Serializable  {
 	
 	public static void transferMoney() {
 		// if more than one account ask for account number, if match key to value then get amount
-		Lists.findAccountNum();
+		Customer.getAccountNum();
 		getBalance();
+		//String sending;
+		//String recieving;
+		
+		
 		System.out.println("balance $  " + balance );
 		LogThis.LogIt("info", "account number: " + Customer.accountNum);
 		float outNum=scan.nextFloat();
 		LogThis.LogIt("info", "Transfer: $" + outNum+ " from account number: " + Customer.accountNum);
 		
+		
 		if(outNum<=balance) {
 			transaction=balance-outNum;
+			getBalance();
 			LogThis.LogIt("info", "transfer: $  " + outNum+ "from account number " + Customer.accountNum);
 			LogThis.LogIt("info", "Current balance: " + transaction);
+			LogThis.LogIt("info" , " Transaction: " + getTransaction() +  " was transfered");
 			
 		}else {
 			LogThis.LogIt("info", "Insufficient Funds");
 			LogThis.LogIt("info", "Current balance: " + balance + "return to transaction menu");
 			Menu.accountTrans();
 			
-			Lists.findAccountNum();
+			
 			System.out.println("Transfer to account number : ");
 			outNum=scan.nextInt();
 			getBalance();
@@ -155,8 +167,8 @@ public class Transactions implements Serializable  {
 	}
 	public static void setBalance(float balance) {
 		Transactions.balance = balance;
+	
 	}
-
 
 
 	public float getDeposit() {
@@ -185,7 +197,7 @@ public class Transactions implements Serializable  {
 	}
 
 
-	public float getTransaction() {
+	public static float getTransaction() {
 		return transaction;
 	}
 	public void setTransaction(float transaction) {

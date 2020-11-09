@@ -41,14 +41,7 @@ public class Lists {
 	}
 			
 
-			/**
-			 * @return 
-			 * 
-			 */
 			public static Customer findAccountByUsername() {
-				
-				HashMap<String, String> cMap= new HashMap<String, String>();
-				
 				Scanner in = new Scanner(System.in);
 					
 				System.out.println("Enter username");
@@ -56,6 +49,7 @@ public class Lists {
 				System.out.println("Enter password");
 				String pswd=in.next();
 				Customer name=new Customer (username, pswd);
+				HashMap<String, String> cMap= new HashMap<String, String>();
 				cMap.get(username);
 
 				for(int i =0; i < customerList.size(); i++) {
@@ -76,7 +70,6 @@ public class Lists {
 			
 	public static Customer findAccountNum() {
 		
-		HashMap<String, Integer> aMap= new HashMap<String, Integer>();
 		
 		Scanner in = new Scanner(System.in);
 		
@@ -84,6 +77,8 @@ public class Lists {
 		String username=in.nextLine();
 		
 		Customer name=new Customer (username);
+
+		HashMap<String, Integer> aMap= new HashMap<String, Integer>();
 		aMap.get(username);
 		
 		for(int i =0; i < customerList.size(); i++) {

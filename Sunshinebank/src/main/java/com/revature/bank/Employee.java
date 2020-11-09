@@ -92,6 +92,9 @@ public class Employee implements Serializable  {
 		
 		
 	public static void empLogIn() {
+		
+		Scanner scan = new Scanner(System.in);
+		
 		Map<String, String> emp= new HashMap<String, String>();
 		
 		emp.put( "kit.kat*A", "katkit");
@@ -100,24 +103,28 @@ public class Employee implements Serializable  {
 		for(Map.Entry<String, String> entry : emp.entrySet())
 			
 		System.out.println("key: " + entry.getKey() + ", Value:  " + entry.getValue());
-
-		Scanner scan= new Scanner(System.in);
-		System.out.println("Enter username");
-		String name=scan.nextLine();
-		System.out.println("Enter password");
-		String pswd=scan.nextLine();
-			 
-		String admin="kit.kat*A";
-		String emplo="heath.bar";
-		String emp2="baby.ruth";
-		if(name==admin){
-			
-			 Menu.adminTrans();
-			}
-		else if(name==emplo) {Menu.empTrans();}
-		else
-			System.out.println("invalid username, try again");
-		empLogIn();
+		System.out.println(" ");
+		System.out.println("1. kit.kat*A--Admin");
+		System.out.println("2. baby.ruth- employee");
+		System.out.println("3. heath.bar - employee");
+		int option=scan.nextInt();
+		switch(option) {
+		case 1:
+			Menu.adminTrans();
+			break;
+		case 2:
+			Menu.empTrans();
+			break;
+		case 3:
+			Menu.empTrans();
+			break;
+		case 4:
+			System.out.println("invalid, try again");
+			break;
+		default:
+			System.out.println("GoodBye");
+		}
+			scan.close();
 			
 	}
 	

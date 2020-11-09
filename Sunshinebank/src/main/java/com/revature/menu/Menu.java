@@ -67,7 +67,7 @@ public class Menu implements GetUser{
 	
 		 Scanner scan = new Scanner(System.in);
 		 int option=scan.nextInt();
-		 User user = new User();
+		 
 		 
 		switch(option) {
 				
@@ -134,12 +134,13 @@ public class Menu implements GetUser{
 			break;
 		case 6:
 			System.out.println(" Good Bye!");
-			break;
-		
+			
+		mainMenu();
+		break;
 		default:
 			System.out.println("Invalid choice");
-			
-	scan.close();
+			accountTrans();
+	
 	     }
 	}
 	
@@ -155,12 +156,13 @@ public class Menu implements GetUser{
 	System.out.println("| 3. Close Account             |");
 	System.out.println("| 4. Deny Account Opening      |");
 	System.out.println("| 5. Approve Account  Opening  |");
-	System.out.println("| 6. Exit                      |");
+	System.out.println("| 6. Go To Transaction Menu    |");
+	System.out.println("| 7. Exit                      |");
 	System.out.println("|------------------------------|");
 	
 	 Scanner scan = new Scanner(System.in);
 	 int option=scan.nextInt();
-	 Transactions trans = new Transactions();
+	 
 	
 	switch(option) {
 		case 1:
@@ -170,7 +172,7 @@ public class Menu implements GetUser{
 			Account.OpenAccount();
 			break;
 		case 3:
-			trans.closeAccount();
+			Transactions.closeAccount();
 			break;
 		case 4:
 			Account.denyAccount();
@@ -178,12 +180,16 @@ public class Menu implements GetUser{
 		case 5:
 			Account.approveAccount();
 			break;
-		case 6: 
-			accountTrans();
+		case 6:
+			trans();
+			break;
+		case 7: 
+			System.out.println("Goodbye");
+			mainMenu();
 		default:
 			System.out.println("Invalid choice");
-			
-	scan.close();
+			empTrans();
+	
 	     }
 	}
 	public static void adminTrans() {
@@ -199,22 +205,23 @@ public class Menu implements GetUser{
 		System.out.println("| 4. Deny Account Opening      |");
 		System.out.println("| 5. Approve Account  Opening  |");
 		System.out.println("| 6. Cancel Account            |");
-		System.out.println("| 7. Exit                      |");
+		System.out.println("| 7. Go To Transaction Menu    |");
+		System.out.println("| 8. Exit                      |");
 		System.out.println("|------------------------------|");
 		
 		 Scanner scan = new Scanner(System.in);
 		 int option=scan.nextInt();
-		 Transactions trans = new Transactions();
 		
+		 
 		switch(option) {
 			case 1:
-				Customer.displayCustomerInfo();
+				Customer.getCustomer(null );
 				  break;
 			case 2:
 				Account.OpenAccount();
 				break;
 			case 3:
-				trans.closeAccount();
+				Transactions.closeAccount();
 				break;
 			case 4:
 				Account.denyAccount();
@@ -224,16 +231,60 @@ public class Menu implements GetUser{
 			case 6:
 				Account.cancelAccount();
 				break;
-			case 7: 
-				accountTrans();
+			case 7:
+				trans();
+				break;
+			case 8: 
+				System.out.println("goodbye");
+				mainMenu();
 			default:
 				System.out.println("Invalid choice");
-				
-		scan.close();
-		     }
+				adminTrans();
 		
-
+		     }
+		}
 	
-
-}
+	public static void trans() {
+	System.out.println("|------------------------------|");
+	System.out.println("|       Sunshine Bank          |");
+	System.out.println("|     Account Transcations     |");
+	System.out.println("|      ---------------         |");
+	System.out.println("|      Choose an option:       |");
+	System.out.println("|    ---------------------     |");
+	System.out.println("|    1. Check Balance          |");
+	System.out.println("|    2. Deposit                |");
+	System.out.println("|    3. Withdraw               |");
+	System.out.println("|    4. Tranfer                |");
+	System.out.println("|    5. Exit                   |");
+	System.out.println("|------------------------------|");
+	
+	 Scanner scan = new Scanner(System.in);
+	 int option=scan.nextInt();
+	 
+	switch(option) {
+	
+		case 1:
+			 Transactions.checkBalance();
+			  break;
+		case 2:
+			Transactions.depositMoney();
+			break;
+		case 3:
+			Transactions.withdrawMoney();
+			break;
+		case 4:
+			Transactions.transferMoney();
+			break;
+		case 5:
+			System.out.println(" Good Bye!");
+			
+		mainMenu();
+		break;
+		default:
+			System.out.println("Invalid choice");
+			trans();
+	
+	     }
+	}
+	
 }

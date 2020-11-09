@@ -8,7 +8,7 @@ public class Driver implements GetUser{
 	static {Files.readCustomerFile();}
 	static {Files.readUserFile();}
 	static {Files.readEmployeeFile();}
-	static {Files.readTransactionsFile();}
+	//static {Files.readTransactionsFile();}
 	static {Files.readAccountFile();}
 	
 
