@@ -1,6 +1,7 @@
 package com.revature.bank;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 import com.revature.util.Files;
 import com.revature.util.Lists;
@@ -11,16 +12,16 @@ import com.revature.menu.*;
 public class Account implements Serializable {
 	
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 2158840141977831459L;
 	
+	static Account trans= new Account();
 	
 	public static  String open;
 	public static  String close;
 	public static String status;
-	
+	static Scanner scan = new Scanner(System.in);
+	static Account account = new Account();
 	
 	public Account() {
 		
@@ -38,29 +39,43 @@ public class Account implements Serializable {
 		LogThis.LogIt("info", "Account status is " );
 	}
 	
-		public static  void openAccount() {
+	
+	
+
+		public static  void OpenAccount() {
 			Customer.getUsername();
+			double openingbalance=0;
 			
-			//if(username)
+			System.out.println("How much is the initial deposit: ");
+			double deposit=scan.nextDouble();
+			double currentbalance=openingbalance+deposit;
+			Transactions  newT = new Transactions();
+			
+			LogThis.LogIt("info",  " balance: $ " + currentbalance);
+			Menu.accountTrans();
+			
 		}
 		
-		public static void  getAcctStatus(){
-			
-		}
 
-		public static void closeAccount() {
-			
-		}
+		
+		
 		public static void denyAccount() {
+			Customer.getUsername();
 			
-		}
-
+				System.out.println("account denied");
+				LogThis.LogIt("info",  " Username; " + Customer.username + " account denied");
+			}
+		
 		public static void approveAccount() {
-			
+			Customer.getUsername();
+			System.out.println("account approved");
+			LogThis.LogIt("info",  " Username; " + Customer.username + " account approved");
 		}
 		
 		public static void cancelAccount() {
-			
+			Customer.getUsername();
+			System.out.println("account was closed and cancelled");
+			LogThis.LogIt("info",  " Username; " + Customer.username + " account was closed and cancelled");
 		}
 
 	public String getOpen() {

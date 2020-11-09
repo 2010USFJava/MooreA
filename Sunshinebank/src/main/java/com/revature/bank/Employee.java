@@ -1,11 +1,13 @@
 package com.revature.bank;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
+import com.revature.menu.Menu;
 import com.revature.util.Files;
 import com.revature.util.Lists;
 import com.revature.util.LogThis;
@@ -13,44 +15,40 @@ import com.revature.util.LogThis;
 public class Employee implements Serializable  {
 	
 
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7819128785344472626L;
 	
 	
 	private static String fName;
 	private static String lName;
+	private static String username; 
+	private static String password;
 	private static String type;
-	private List<String> keys;
+	
+	
 	
 	
 	public Employee() {
-		this(fName, lName, type);
+	
 		Lists.employeeList.add(this);
 		Files.writeEmployeeFile(Lists.employeeList);
 	}
 	
-	public Employee(String fName) {
-		this(fName, lName, type);
+	public Employee(String username, String password) {
+		this.username=username;
+		this.password=password;
 		Lists.employeeList.add(this);
 		Files.writeEmployeeFile(Lists.employeeList);
+		LogThis.LogIt("info", "employee username: " + getUsername() + " employee password: " + getPassword());
 	}
+
 	
-	public Employee(String fName, String lName) {
-		this(fName, lName, type);
-		Lists.employeeList.add(this);
-		Files.writeEmployeeFile(Lists.employeeList);
-	}
-	
-	
-	public Employee(String fName, String lName, String type) {
+	public Employee(String fName, String lName, String username,String type) {
 		super();
 		
 		this.fName = fName;
 		this.lName = lName;
 		this.type = type;
+		
 		
 		Lists.employeeList.add(this);
 		Files.writeEmployeeFile(Lists.employeeList);
@@ -60,97 +58,69 @@ public class Employee implements Serializable  {
 	}
 	
 
-	public Employee addKeys(Employee employee) {
-		this.keys.addAll(employee.getKeys());
-		return this;
-	}
 	
-	
-	//username=fName.lName
-	
-	public static void makeEmpUser() {
-		Scanner scan = new Scanner (System.in);
+	//employee=fName.lName
+	//adminn=fitrst.last*A
+		public static void empUsers() {
+
+			Map<String, String> emp= new HashMap<String, String>();
+			
+			emp.put( "kit.kat*A", "katkit");
+			emp.put("baby.ruth", "ruthbaby");
+			emp.put("heath.bar", "barheath");
+			for(Map.Entry<String, String> entry : emp.entrySet())
+				
+			System.out.println("key: " + entry.getKey() + ", Value:  " + entry.getValue());
+	        Data ds3 = new Data();
+	        ds3.setMap(emp);
+	        ds3.getMap(emp);
+
+	        MoreData md3= new MoreData();
+	        ds3.giveMap(md3);
+	        md3.displayMap();
+	        
+
+			for (String s : emp.keySet()) {
+				
+				System.out.println("keyset:" + s );
+				
+			} // LogThis.LogIt("info",  "list of employees " + emp );
+	        
+		}
 		
-		System.out.println("enter employee first name");
-			fName=scan.nextLine();
-			System.out.println("enter employee last name");
-			lName=scan.nextLine();
-			String username= fName+ "." + lName;
-			System.out.println("enter password");
-			String pswd=scan.nextLine();
-			
-			Employee empUser = new Employee(fName, lName);
-			LogThis.LogIt("info", "employee: " + fName+ " " + lName + " username: " + username );
-			
-			HashMap<String, String> emMap = new HashMap<String, String>();
-			emMap.put(username, pswd);
-			emMap.get(username);
-			LogThis.LogIt("info", "HashMap for employee :  " + empUser + " is key: " + username + " - password: " + pswd);
-			
-			
-	}
+		
+		
+		
 	public static void empLogIn() {
-		Scanner scan= new Scanner(System.in);
+		Map<String, String> emp= new HashMap<String, String>();
 		
+		emp.put( "kit.kat*A", "katkit");
+		emp.put("baby.ruth", "ruthbaby");
+		emp.put("heath.bar", "barheath");
+		for(Map.Entry<String, String> entry : emp.entrySet())
+			
+		System.out.println("key: " + entry.getKey() + ", Value:  " + entry.getValue());
+
+		Scanner scan= new Scanner(System.in);
 		System.out.println("Enter username");
 		String name=scan.nextLine();
 		System.out.println("Enter password");
 		String pswd=scan.nextLine();
-		
-		Lists.findEmpUser(name);
-		System.out.println();
-	}
-
-//	public void typeOfEmp() {
-//		
-//		
-//		if(type==admin) {
-//		adminRights();
-//			
-//		}else if (type==emp) {
-//		empRights();
-//		}else 
-//			System.out.println("Invalid choice");
-//			
-//	}
-//	
-	/* Admin should be able to view all customers info:
-	 *  approving/denying accounts
-	 *  withdrawing. depositing, transferring money
-	 *  Canceling account
-	 *  */
-
-	public static void adminRights() {
-		Customer.displayCustomerInfo(Customer.username);
-		Account.openAccount();
-		Account.closeAccount();
-		Account.denyAccount();
-		Account.approveAccount();
-		Account.cancelAccount();
-		Transactions.withdrawMoney();
-		Transactions.depositMoney();
-		Transactions.transferMoney();
-		
-		
+			 
+		String admin="kit.kat*A";
+		String emplo="heath.bar";
+		String emp2="baby.ruth";
+		if(name==admin){
+			
+			 Menu.adminTrans();
+			}
+		else if(name==emplo) {Menu.empTrans();}
+		else
+			System.out.println("invalid username, try again");
+		empLogIn();
+			
 	}
 	
-	/*
-	 * *  employee should be able to view account balances and 
- *  personal info, approve or deny opening of an account
- */
-
-	
-	public static void empRights() {
-		Customer.displayCustomerInfo();
-		Account.openAccount();
-		Account.closeAccount();
-		Account.denyAccount();
-		Account.approveAccount();
-		Transactions.withdrawMoney();
-		Transactions.depositMoney();
-		Transactions.transferMoney();
-	}
-
 
 	public String getfName() {
 		return fName;
@@ -175,6 +145,24 @@ public class Employee implements Serializable  {
 		this.type = type;
 	}
 
+	public static String getUsername() {
+		return username;
+	}
+	public static void setUsername(String username) {
+		Employee.username = username;
+	}
+
+	public static String getPassword() {
+		return password;
+	}
+
+	public static void setPassword(String password) {
+		Employee.password = password;
+	}
+
+	
+	
+	
 
 }
 

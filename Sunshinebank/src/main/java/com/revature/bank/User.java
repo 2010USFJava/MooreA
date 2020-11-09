@@ -3,6 +3,7 @@ package com.revature.bank;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 import com.revature.menu.Menu;
@@ -20,16 +21,14 @@ public class User implements Serializable {
 	private static final long serialVersionUID = -2437056169379975891L;
 	
 	
-	private  String username;
-	private  String pswd;
-	private int employeeID;
+	public static String username;
+	public  static String pswd;
+	
 	
 	public static Scanner in = new Scanner(System.in);
 	
 	
 	public User() {
-		
-		
 		Lists.userList.add(this);
 		Files.writeUserFile(Lists.userList);
 	}
@@ -42,102 +41,11 @@ public class User implements Serializable {
 		LogThis.LogIt("info",  "user : " + this.getUsername() + " logged into system");
 		
 	}
-	
-	public User(String username, String pswd, int employeeID) {
-		this.username = username;
-		this.pswd = pswd;
-		this.employeeID=employeeID;
-		
-		Lists.userList.add(this);
-		Files.writeUserFile(Lists.userList);
-		LogThis.LogIt("info", "Employee " + this.getUsername() + " logged in" );
-	
-	}
-	
+
 
 	
-	public static void searchForUser() {
-		
-		System.out.println("Enter username");
-		String inputname=in.nextLine();
-		
-		System.out.println("Enter password");
-		String inputPswd=in.nextLine();
-
-		Lists.findAccountByUsername(inputname);
-		Lists.findPassword(inputPswd);
-		
-		User user1= new User(inputname, inputPswd );
-		
-		if(inputname==inputPswd) {
-			LogThis.LogIt("info",  " Username:  " + user1.getUsername() + " logged in");
-		Menu.accountTrans();
-		}else {
-			LogThis.LogIt("info", " username and password do not match, try again");
-			User.searchForUser();
-		}
-		
-		
-	}
 	
-	
-	public void custUser() {
-	
-		
-			System.out.println("Enter username");
-			String username=in.nextLine();
-			System.out.println("Enter password");
-			String pswd=in.nextLine();
-			
-			User cUser= new User(username, pswd);
-			LogThis.LogIt("info",  " Username " + cUser.getUsername() + " logged in");
-			System.out.println(Lists.userList.toString());
-			
-			HashMap<String, String> SignIn= new HashMap<String, String>();
-			SignIn.put(this.username, this.pswd);
-			LogThis.LogIt("info", " Username: " + cUser.getUsername() + cUser.getPswd() + " and password have been mapped together");
-			System.out.println(Lists.userList.toString());
-			
-//			for (String i : SignIn.keySet()) {
-//			     System.out.println("key: " + i + "value: " + SignIn.get(i));
-//			    }
-//			}
-			
-		
-	}
-	
-	public void  adminUser(String username, String pswd, int employeeID) {
-		System.out.println("Enter username: ");
-		String name=in.nextLine();
-		System.out.println("Enter password: ");
-		String adminPswd= in.nextLine();
-		System.out.println("Enter employee ID number: ");
-		int empId = Integer.parseInt(in.nextLine());
-	
-		User admin = new User(name, adminPswd, empId);
-		LogThis.LogIt("info", " Admin with employeeID: " + admin.getEmployeeID() + " just loged in");
-		System.out.println(Lists.userList.toString());
-		
-		
-	}
-
-	public void empUser( String username, String pswd, int employeeID) {
-		System.out.println("Enter username: ");
-		String empName=in.nextLine();
-		System.out.println("Enter password: ");
-		String empPswd= in.nextLine();
-		System.out.println("Enter employee ID number: ");
-		int ID = Integer.parseInt(in.nextLine());
-	
-		User emp = new User(empName, empPswd, ID);
-		LogThis.LogIt("info", " Admin with employeeID: " + emp.getEmployeeID() + " just loged in");
-		System.out.println(Lists.userList.toString());
-		
-	}
-	
-	
-	
-	public String getUsername() {
+	public static String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
@@ -153,17 +61,6 @@ public class User implements Serializable {
 	}
 
 
-	public int getEmployeeID() {
-		return employeeID;
-	}
-	public void setEmployeeID(int employeeID) {
-		this.employeeID = employeeID;
-	}
 
-
-	@Override
-	public String toString() {
-		return "User [username=" + username + ", pswd=" + pswd + ", employee=" + employeeID + "]";
-	}
 
 }

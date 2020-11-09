@@ -2,7 +2,10 @@ package com.revature.util;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.UUID;
 
 import com.revature.bank.Account;
@@ -38,55 +41,87 @@ public class Lists {
 	}
 			
 
-			public static Customer findAccountByUsername(String inputname) {
-			
-			for(int i =0; i < customerList.size(); i++) {
-				String username = customerList.get(i).getUsername();
-				if(username.equals(inputname)) {
-					return customerList.get(i);
-				}
+			/**
+			 * @return 
+			 * 
+			 */
+			public static Customer findAccountByUsername() {
 				
-			LogThis.LogIt("info", "username"  + Customer.getUsername() + " was not found");
+				HashMap<String, String> cMap= new HashMap<String, String>();
+				
+				Scanner in = new Scanner(System.in);
+					
+				System.out.println("Enter username");
+				String username=in.nextLine();
+				System.out.println("Enter password");
+				String pswd=in.next();
+				Customer name=new Customer (username, pswd);
+				cMap.get(username);
+
+				for(int i =0; i < customerList.size(); i++) {
+					String user = customerList.get(i).getUsername();
+					if(user.equals(username));
+					System.out.println("username: " + username);
+				Menu.accountTrans();
+					
+				LogThis.LogIt("info",  " account with username: " + username  + " was found");
+				
+				LogThis.LogIt("info",  "username not found");
+				Menu.mainMenu();
 		}
-			return null;
-	}
-	
-	public static Customer findAccountByAccountNum(int actNum) {
+				return null;	
+		}
+			
+
+			
+	public static Customer findAccountNum() {
+		
+		HashMap<String, Integer> aMap= new HashMap<String, Integer>();
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter username");
+		String username=in.nextLine();
+		
+		Customer name=new Customer (username);
+		aMap.get(username);
 		
 		for(int i =0; i < customerList.size(); i++) {
-			customerList.get(i);
-			Integer acc = Customer.getAccountNum();
-			if(acc.equals(actNum)) {
+			Integer acNum = customerList.get(i).getAccountNum();
+			if(acNum.equals(Customer.accountNum)) {
 				return customerList.get(i);
 			}
-			LogThis.LogIt("info", " account number: " + acc + " was not found");
 			System.out.println("account number not found");
-		}
-	
-		
+	}
 		return null;
 	}
 	
-	
 		
-	public static Employee findEmpUser(String name) {
+	public static Employee findEmpUser() {
 		
-		for(int i =0; i < employeeList.size(); i++) {
-			String emUser = employeeList.get(i).getType();
-			if(emUser.equals(name)) {
-				return employeeList.get(i);
-				
-			}
-			LogThis.LogIt("info", " employee username: " +  emUser + " found");
-			
-		}
-		
-		System.out.println("employee  not found");
-		
-		return null;
-	}
-	
-}	
 
+		HashMap<String, String> emp= new HashMap<String, String>();
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter username");
+		String username=in.nextLine();
+		System.out.println("Enter password");
+		String pswd=in.next();
+		
+		Employee name=new Employee (username, pswd);
+		emp.get(username);
+		for(int i =0; i < employeeList.size(); i++) {
+			String user = employeeList.get(i).getUsername();
+			if(user.equals(username)) {
+				return employeeList.get(i);
+	
+			}
+			LogThis.LogIt("info",  " account with username: " + username  + " was found");
+		}
+			
+
+		return null;
+	}
+}
 
 	
