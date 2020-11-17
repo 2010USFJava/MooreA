@@ -2,30 +2,40 @@ package com.revature.beans;
 
 import java.util.ArrayList;
 
-public class Customer  {
+import com.revature.util.LogThis;
+
+public class Customer{
 	
 	public int cid;
-	public String cfirst;
-	public String clast;
-	public String cusername;
-	public String cpassword;
+	public static  String cfirst;
+	public static String clast;
+	public static String cusername;
+	public static String cpassword;
+	public static int aacountnum;
 	
 	public Customer() {
 		super();
+	}
 	
-	
-	
-}
-
-	public Customer(int cid, String cfirst, String clast, String cusername, String cpassword) {
+	public Customer(int cid, String cfirst, String clast, String cusername, String cpassword, int aacountnum) {
 		super();
 		this.cid = cid;
 		this.cfirst = cfirst;
 		this.clast = clast;
 		this.cusername = cusername;
 		this.cpassword = cpassword;
+		this.aacountnum=aacountnum;
 	}
 
+	
+	public Customer(String cfirst, String clast, String cusername, String cpassword, int aacountnum) {
+		this.cfirst = cfirst;
+		this.clast = clast;
+		this.cusername = cusername;
+		this.cpassword = cpassword;
+		this.aacountnum=aacountnum;
+		LogThis.LogIt("info",  "customer" + getCfirst() + "" + getClast() +" created account");
+	}
 	/**
 	 * @return the cid
 	 */
@@ -71,7 +81,7 @@ public class Customer  {
 	/**
 	 * @return the cusername
 	 */
-	public String getCusername() {
+	public static String getCusername() {
 		return cusername;
 	}
 
@@ -96,10 +106,16 @@ public class Customer  {
 		this.cpassword = cpassword;
 	}
 
+	public void setAacountnum(int aacountnum) {
+		this.aacountnum=aacountnum;
+	}
+	public int getAacountnum() {
+		return aacountnum;
+	}
 	@Override
 	public String toString() {
 		return "Customer [cid=" + cid + ", cfirst=" + cfirst + ", clast=" + clast + ", cusername=" + cusername
-				+ ", cpassword=" + cpassword + "]";
+				+ ", cpassword=" + cpassword + " , aacountnum=" + aacountnum +"]";
 	}
 	
 }

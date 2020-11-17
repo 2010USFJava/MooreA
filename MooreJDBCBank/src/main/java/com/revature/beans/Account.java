@@ -1,10 +1,13 @@
 package com.revature.beans;
 
+import com.revature.util.LogThis;
+
 public class Account extends Customer {
 	
 	public int aid;
-	public int aacountnum=0;
+
 	public double balance;
+	public String status;
 	
 	
 	
@@ -12,11 +15,13 @@ public class Account extends Customer {
 		super();
 
 	}
- public  Account(int aid, int aacountnum, double balance) {
+ public  Account(int aid, double balance, String status) {
 		super();
 		this.aid = aid;
-		this.aacountnum = aacountnum;
+		
 		this.balance=balance;
+		this.status=status;
+		//LogThis.LogIt("info", " account number " + getAacountnum() + "was created");
 	}
 
 	/**
@@ -33,19 +38,8 @@ public class Account extends Customer {
 		this.aid = aid;
 	}
 
-	/**
-	 * @return the accountNum
-	 */
-	public int getAacountnum() {
-		return aacountnum;
-	}
-
-	/**
-	 * @param accountNum the accountNum to set
-	 */
-	public void setAacountnum(int aacountnum) {
-		this.aacountnum = aacountnum;
-	}
+	
+	
 	public double getBalance() {
 		return balance;
 	}
@@ -54,10 +48,24 @@ public class Account extends Customer {
 		this.balance=balance;
 	}
 	
+	
 
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	@Override
 	public String toString() {
-		return "Account [aid=" + aid + ", aacountnum=" + aacountnum + "]";
+		return "Account [aid=" + aid +  ", balance=" + balance + ", status=" + status
+				+ "]";
 	}
 	
 	

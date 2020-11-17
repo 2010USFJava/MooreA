@@ -2,46 +2,71 @@ package com.revature.beans;
 
 public class Employee {
 	
-	int eid;
-	String emp;
+	public int eid;
+	public String eusername;
+	public String  epassword;
+	
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
-	public Employee(int eid, String emp) {
+	public Employee(String eusername, String epassword) {
+		super();
+		
+		this.eusername=eusername;
+		this.epassword = epassword;
+	}
+
+
+	public Employee(int eid, String eusername, String epassword) {
 		super();
 		this.eid = eid;
-		this.emp = emp;
+		this.eusername=eusername;
+		this.epassword = epassword;
 	}
+
 	/**
 	 * @return the eid
 	 */
 	public int getEid() {
 		return eid;
 	}
+
 	/**
 	 * @param eid the eid to set
 	 */
 	public void setEid(int eid) {
 		this.eid = eid;
 	}
-	/**
-	 * @return the emp
-	 */
-	public String getEmp() {
-		return emp;
+
+	
+	public String getEusername() {
+		return eusername;
 	}
-	/**
-	 * @param emp the emp to set
-	 */
-	public void setEmp(String emp) {
-		this.emp = emp;
+
+	
+	public void setEusername(String eusername) {
+		this.eusername = eusername;
 	}
+
+	/**
+	 *
+	 */
+	public String getEpassword() {
+		return epassword;
+	}
+
+	/**
+	 * @param epassword the epassword to set
+	 */
+	public void setEpassword(String epassword) {
+		this.epassword = epassword;
+	}
+
 	@Override
 	public String toString() {
-		return "Employee [eid=" + eid + ", emp=" + emp + "]";
+		return "Employee [eid=" + eid + ", eusername=" + eusername + ", epassword=" + epassword + "]";
 	}
-	
 	
 	
 	
