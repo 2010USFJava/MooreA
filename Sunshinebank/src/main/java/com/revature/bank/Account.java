@@ -1,116 +1,105 @@
 package com.revature.bank;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.revature.util.Files;
-import com.revature.util.Lists;
-import com.revature.util.LogThis;
-import com.revature.menu.*;
+public class Account extends User implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2918739566230933799L;
 
-public class Account implements Serializable {
-	
-	
-	
-	private static final long serialVersionUID = 2158840141977831459L;
-	
-	static Account trans= new Account();
-	
-	public static  String open;
-	public static  String close;
-	public static String status;
+	public static int accountNum = 0;
+
+	private static Customer customer;
+
+	ArrayList<Account> accounts = new ArrayList<>();
+
 	static Scanner scan = new Scanner(System.in);
-	static Account account = new Account();
-	
+
 	public Account() {
-		
-		Lists.accountList.add(this);
-		Files.writeAccountFile(Lists.accountList);
+
+//		Lists.accountList.add(this);
+//		Files.writeAccountFile(Lists.accountList);
 	}
 
-	public Account(String open, String close, String status) {
-		this.open=open;
-		this.close=close;
-		this.status=status;
-		
-		Lists.accountList.add(this);
-		Files.writeAccountFile(Lists.accountList);
-		LogThis.LogIt("info", "Account status is " );
-	}
-	
-	
-	
+	public Account(int accountNum, Customer customer) {
+		super();
+		this.accountNum = accountNum;
 
-		public static  void OpenAccount() {
-			Customer.getAccountNum();
-			Customer.displayCustomerInfo();
-			float openingbalance=0;
-			
-			System.out.println("How much is the initial deposit: ");
-			float deposit=scan.nextFloat();
-			float currentbalance=openingbalance+deposit;
-			Transactions  newT = new Transactions();
-			Transactions.setBalance(deposit);
-			LogThis.LogIt("info",  " balance: $ " + currentbalance);
-			Menu.accountTrans();
-			
-		}
-		
+		this.customer = customer;
+//		Lists.accountList.add(this);
+//		Files.writeAccountFile(Lists.accountList);
 
-		
-		
-		public static void denyAccount() {
-			Customer.getAccountNum();
-			
-				System.out.println("account denied");
-				LogThis.LogIt("info",  " Username; " + Customer.username + " account denied");
-			}
-		
-		public static void approveAccount() {
-			Customer.getAccountNum();
-			System.out.println("account approved");
-			LogThis.LogIt("info",  " Username; " + Customer.username + " account approved");
-		}
-		
-		public static void cancelAccount() {
-			Customer.getAccountNum();
-			System.out.println("account was closed and cancelled");
-			LogThis.LogIt("info",  " Username; " + Customer.username + " account was closed and cancelled");
-		}
-
-	public String getOpen() {
-		return open;
-	}
-	public void setOpen(String open) {
-		Account.open = open;
 	}
 
-	public String getClose() {
-		return close;
-	}
-	public void setClose(String close) {
-		Account.close = close;
-	}
-	
-	public String getSatus() {
-		return status;
-	}
-	public void setSatus() {
-		Account.status=status;
-	}
-	
+//	public static void displayCustomer() {
+//
+//		System.out.println(customer);
+//	}
+//
+//	public static int createAccountNum(String username) {
+//
+//		ArrayList<Integer> acctNum = new ArrayList<>();
+//
+//		if (accountNum == 0) {
+//			accountNum = (int) (Math.random() * 5000);
+//			acctNum.add(accountNum);
+//
+//			for (int i = 0; i < acctNum.size(); i++) {
+//
+//				System.out.println("Account number:  " + acctNum.get(i));
+//				LogThis.LogIt("info", "Account number: " + getAccountNum() + " was created for " + Customer.username);
+//			}
+//
+//		}
+//		return accountNum;
+//
+//	}
+//
+//	public static void OpenAccount() {
+//		getAccountNum();
+//		// displayCustomerInfo();
+//		float openingbalance = 0;
+//
+//		System.out.println("How much is the initial deposit: ");
+//		float deposit = scan.nextFloat();
+//		float currentbalance = openingbalance + deposit;
+//		Transactions newT = new Transactions();
+//		Transactions.setBalance(deposit);
+//		LogThis.LogIt("info", " balance: $ " + currentbalance);
+//		Menu.accountTrans();
+//
+//	}
 
-	@Override
-	public String toString() {
-		return "Account [open=" + open + ", close=" + close + ", status=" + status +"]";
+	/**
+	 * @return the accountNum
+	 */
+	public static int getAccountNum() {
+		return accountNum;
 	}
-	
+
+	/**
+	 * @param accountNum the accountNum to set
+	 */
+	public static void setAccountNum(int accountNum) {
+		Account.accountNum = accountNum;
+	}
+
+	/**
+	 * @return the customer
+	 */
+	public static Customer getCustomer() {
+		return customer;
+	}
+
+	/**
+	 * @param customer the customer to set
+	 */
+	public static void setCustomer(Customer customer) {
+		Account.customer = customer;
+	}
 
 }
-/* check for overdrawn accounts or
- *  inputting negative amounts
- */
-
-
-

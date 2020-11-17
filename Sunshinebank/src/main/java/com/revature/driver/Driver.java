@@ -1,22 +1,31 @@
 package com.revature.driver;
 
-import com.revature.menu.Menu;
-import com.revature.util.Files;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Driver implements GetUser{
+import com.revature.bank.Customer;
+import com.revature.dao.impl.CustomerDaoImpl;
 
-	static {Files.readCustomerFile();}
-	static {Files.readUserFile();}
-	static {Files.readEmployeeFile();}
-	//static {Files.readTransactionsFile();}
-	static {Files.readAccountFile();}
-	
+public class Driver {
 
-    public static void main(String[] args) {
-    	Menu.mainMenu();
-    	
-    		
+	public static void main(String[] args) throws SQLException {
 
-	
-}
+		// Menu.mainMenu();
+
+//		UserDao dao = new UserDaoImpl();
+//		try {
+//			dao.findAccountById(1);
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+
+		CustomerDaoImpl cu = new CustomerDaoImpl();
+		List<Customer> newcust = new ArrayList();
+		newcust.add(new Customer());
+		long id = cu.createCust(newcust);
+
+	}
+
 }

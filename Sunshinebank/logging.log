@@ -1,0 +1,21 @@
+[INFO ] 2020-11-11 00:17:43.025 [main] LogThis - User : null logged into system
+[INFO ] 2020-11-11 00:18:56.355 [main] LogThis - User : email logged into system
+[INFO ] 2020-11-11 00:18:56.359 [main] LogThis - User : email logged into system
+[INFO ] 2020-11-11 00:18:56.360 [main] LogThis - Username: email was created
+[INFO ] 2020-11-11 00:18:56.364 [main] LogThis - User : email logged into system
+[INFO ] 2020-11-11 00:42:43.466 [main] LogThis - User : jo1 logged into system
+[INFO ] 2020-11-11 00:42:43.469 [main] LogThis - Username: jo1 was created
+[INFO ] 2020-11-11 00:42:43.469 [main] LogThis - Account number: 1358was created for null
+[INFO ] 2020-11-11 00:42:43.473 [main] LogThis - User : jo1 logged into system
+[INFO ] 2020-11-11 00:42:43.481 [main] LogThis - Customer  profile for: jo mowas created
+[INFO ] 2020-11-11 00:42:43.482 [main] LogThis - Customer jo mo created an account
+[INFO ] 2020-11-11 01:04:08.304 [main] LogThis - Username: angie1 was created
+[INFO ] 2020-11-11 01:04:08.305 [main] LogThis - Account number: 2589 was created for null null
+[INFO ] 2020-11-11 01:04:08.315 [main] LogThis - Customer  profile for: angie moorewas created
+[INFO ] 2020-11-11 01:04:08.315 [main] LogThis - Customer angie moore created an account
+[INFO ] 2020-11-11 01:20:22.833 [main] LogThis - Username: angie1 was created
+[INFO ] 2020-11-11 01:20:22.835 [main] LogThis - Account number: 1741 was created for null null
+[INFO ] 2020-11-11 01:20:22.846 [main] LogThis - Customer  profile for: angie moorewas created
+[INFO ] 2020-11-11 01:20:22.846 [main] LogThis - Customer angie moore created an account
+[INFO ] 2020-11-16 19:48:26.950 [main] LogThis - Customer nullnullloggin in
+[INFO ] 2020-11-16 19:49:14.279 [main] LogThis - Customer nullnullloggin in
