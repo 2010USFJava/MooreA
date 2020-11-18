@@ -120,25 +120,27 @@ public class CustomerDaoImpl extends Customer implements CustomerDao {
 		return cusername;
 	}
 
-	@Override
-	public List<Customer> getAllCustomers() throws SQLException {
-		List<Customer> customers = new ArrayList<>();
-		try {
-			Connection conn = cf.getConnection();
-			Statement stmt = conn.createStatement();
+	
 
-			ResultSet rs = stmt.executeQuery("select * from customers");
-			Customer c = null;
-			while (rs.next()) {
-				c = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
-				customers.add(c);
-
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return customers;
-	}
+//	@Override
+//	public List<Customer> getAllCustomers() throws SQLException {
+//		List<Customer> customers = new ArrayList<>();
+//		try {
+//			Connection conn = cf.getConnection();
+//			Statement stmt = conn.createStatement();
+//
+//			ResultSet rs = stmt.executeQuery("select * from customers");
+//			Customer c = null;
+//			while (rs.next()) {
+//				c = new Customer(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+//				customers.add(c);
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//
+//		return customers;
+//	}
 
 }

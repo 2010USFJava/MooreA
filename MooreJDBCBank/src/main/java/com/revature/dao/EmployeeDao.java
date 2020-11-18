@@ -8,7 +8,7 @@ public interface EmployeeDao {
 	
 	
 	public void empSignOut() throws SQLException;
-	public void empMenu() throws SQLException;
+	
 	public void empSignIn() throws SQLException;
 	
 

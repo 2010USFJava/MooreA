@@ -1,4 +1,4 @@
-package com.revature.angie;
+package com.revature.beans;
 
 public class Dog {
 	private String name;

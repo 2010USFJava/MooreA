@@ -36,6 +36,7 @@ public class ConFactory {
 			prop.load(new FileReader("database.properties"));
 			conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("username"),
 					prop.getProperty("password"));
+			
 		} catch (SQLException e) {
 
 			e.printStackTrace();

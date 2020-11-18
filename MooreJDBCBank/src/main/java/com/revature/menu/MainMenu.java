@@ -124,7 +124,7 @@ scan.close();
 	     
 			break;
 		case 2:
-			 acct.custSignIn();
+			acct.custSignIn();
 			break;
 		case 3:
 			
@@ -134,7 +134,42 @@ scan.close();
 		default:
 			System.out.println("Invalid choice");
 			transMenu();
-scan.close();
+
+		}
+	}
+	
+	public static void empMenu() throws SQLException {
+		System.out.println("|==============================|");
+		System.out.println("|       Sunshine Bank          |");
+		System.out.println("|       Employee Menu          |");
+		System.out.println("|      ---------------         |");
+		System.out.println("|      Choose an option:       |");
+		System.out.println("|    ---------------------     |");
+		System.out.println("| 1. Display Customer Account  |");
+		System.out.println("| 2. Open New Account          |");
+		System.out.println("| 3. Go To Main Menu           |");
+		System.out.println("| 4. Exit                      |");
+		System.out.println("|==============================|");
+		Scanner scan = new Scanner(System.in);
+		int option = scan.nextInt();
+		Customer a=null;
+		switch (option) {
+		case 1:
+			acct.viewAccount();
+			break;
+		case 2:
+		cc.createCustomer();
+			break;
+		case 3:
+			MainMenu.mainMenu();;
+			break;
+		case 4:
+			System.out.println("Goodbye");
+			break;
+		default:
+			System.out.println("Invalid choice");
+			empMenu();
+
 		}
 	}
 	

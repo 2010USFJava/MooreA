@@ -34,7 +34,7 @@ public class Customer{
 		this.cusername = cusername;
 		this.cpassword = cpassword;
 		this.aacountnum=aacountnum;
-		LogThis.LogIt("info",  "customer" + getCfirst() + "" + getClast() +" created account");
+		LogThis.LogIt("info",  "customer " + getCfirst() + "  " + getClast() + " created account");
 	}
 	/**
 	 * @return the cid

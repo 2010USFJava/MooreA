@@ -29,21 +29,14 @@ public class EmployeeDaoImpl extends Employee implements EmployeeDao {
 	public void empSignIn() throws SQLException {
 		
 		try {
-		Scanner scan = new Scanner(System.in);
-		
-		System.out.println("Enter username");
-		String username=scan.nextLine();
-		System.out.println("Enter password");
-		String password=scan.nextLine();
 		
 		Connection conn= cf.getConnection();
 		
 		String sql="select * from sunshinebank.employee where eusername=? and epassword=?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
-		
-		ps.setString(1, username);
-		ps.setString(2, password);
+		ps.setString(1, "admin");
+		ps.setString(2, "sunshine1");
 
 		ResultSet rs=ps.executeQuery();
 		
@@ -51,23 +44,11 @@ public class EmployeeDaoImpl extends Employee implements EmployeeDao {
 
 			rs.getString(2);
 			rs.getString(3);
-		
-			
-			 if (password.equals(epassword) && eusername.equals(eusername)) {
-				 System.out.println("==================");
-				 System.out.println( "log in succesfull");
-				 System.out.println("==================");
-				
-			
-				empSignIn();
-	             
-	           
-	            } else  {
-	            	
-	            	 empMenu();
+		System.out.println("admin logged in");
+		LogThis.LogIt("info"," admin logged in");	
+	            	 MainMenu.empMenu();
 	           }
-			
-		}
+		
 	
 	}catch (SQLException e) {
    		e.printStackTrace();
@@ -96,52 +77,8 @@ public class EmployeeDaoImpl extends Employee implements EmployeeDao {
 	
 		
 	}
-	@Override
-	public void empMenu() throws SQLException {
-		System.out.println("|==============================|");
-		System.out.println("|       Sunshine Bank          |");
-		System.out.println("|       Employee Menu          |");
-		System.out.println("|      ---------------         |");
-		System.out.println("|      Choose an option:       |");
-		System.out.println("|    ---------------------     |");
-		System.out.println("| 1. Display Customer Account  |");
-		System.out.println("| 2. Open New Account          |");
-		System.out.println("| 3. Close Account             |");
-		System.out.println("| 4. Delete Account            |");
-		System.out.println("| 5. Go To Main Menu           |");
-		System.out.println("| 6. Exit                      |");
-		System.out.println("| 7. Exit                      |");
-		System.out.println("|==============================|");
-		Scanner scan = new Scanner(System.in);
-		int option = scan.nextInt();
-		Customer a=null;
-		switch (option) {
-		case 1:
-			acc.viewAccount();
-			break;
-		case 2:
-			dao.createCustomer();
-			break;
-		case 3:
-			acc.closeAccount();
-			break;
-		case 4:
-			acc.deleteAccount();
-			break;
-		case 5:
-			MainMenu.mainMenu();
-			break;
-		case 6:
-			
-		case 7:
-			System.out.println("Goodbye");
-			
-		default:
-			System.out.println("Invalid choice");
-			empMenu();
-
-		}
-	}
+	
+	
 
 	
 }

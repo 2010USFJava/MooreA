@@ -41,3 +41,88 @@
 [INFO ] 2020-11-17 13:05:38.579 [main] LogThis - user null loggin in
 [INFO ] 2020-11-17 13:10:43.295 [main] LogThis - user null loggin in
 [INFO ] 2020-11-17 13:13:12.380 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 14:14:12.710 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 14:25:14.840 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 15:10:54.642 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 15:13:03.463 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 15:14:04.157 [main] LogThis - amoore1 made an deposit of $ 50.0
+[INFO ] 2020-11-17 15:20:25.069 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 15:24:33.679 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 15:39:54.606 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 15:53:33.656 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 16:00:37.538 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 16:02:17.921 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 16:08:45.153 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 16:30:17.333 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 16:52:11.231 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 18:00:34.891 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 18:12:17.815 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 18:12:35.334 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 18:14:44.390 [main] LogThis - customerdeanwinchester created account
+[INFO ] 2020-11-17 18:15:16.695 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 18:21:18.573 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 19:25:40.276 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 19:27:38.016 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 19:40:22.120 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 19:42:29.614 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 19:48:19.730 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 19:49:01.284 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 19:53:31.291 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 19:53:57.649 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 19:56:22.875 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 19:59:17.419 [main] LogThis - user null loggin in
+[INFO ] 2020-11-17 20:02:28.195 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:15:06.377 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:17:41.112 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:21:34.370 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:28:31.688 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:31:16.196 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:34:15.119 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:36:27.402 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:39:13.666 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:41:35.961 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:43:25.221 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:50:00.013 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:54:31.796 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 20:58:26.926 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 21:08:04.378 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 21:08:44.983 [main] LogThis - amoore1 made an deposit of $ 246.0
+[INFO ] 2020-11-17 21:30:52.125 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 21:31:31.672 [main] LogThis - amoore1 made an deposit of $ 33.0
+[INFO ] 2020-11-17 21:48:34.478 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 22:07:21.717 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 22:09:39.786 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 22:12:33.249 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 22:30:35.917 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 22:32:37.756 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 22:51:38.924 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 22:53:14.287 [main] LogThis - user amoore1 logged in
+[INFO ] 2020-11-17 22:56:51.372 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 22:59:10.574 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:02:14.123 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:06:58.890 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:11:42.643 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:14:23.397 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:18:42.149 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:19:22.081 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:23:36.598 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:26:41.936 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:28:49.070 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:33:20.272 [main] LogThis - customer ape  new created account
+[INFO ] 2020-11-17 23:33:47.057 [main] LogThis - user apeyy logged in
+[INFO ] 2020-11-17 23:34:56.859 [main] LogThis - user apeyy logged in
+[INFO ] 2020-11-17 23:37:00.759 [main] LogThis - customer april  newsome created account
+[INFO ] 2020-11-17 23:37:23.508 [main] LogThis - user apeyy133 logged in
+[INFO ] 2020-11-17 23:37:58.257 [main] LogThis - apeyy133 made an deposit of $ 200.0
+[INFO ] 2020-11-17 23:39:12.966 [main] LogThis - user apeyy133 logged in
+[INFO ] 2020-11-17 23:39:54.793 [main] LogThis - user apeyy133 logged in
+[INFO ] 2020-11-17 23:40:47.319 [main] LogThis - user apeyy133 logged in
+[INFO ] 2020-11-17 23:41:23.355 [main] LogThis - apeyy133 made an deposit of $ 100.0
+[INFO ] 2020-11-17 23:42:36.473 [main] LogThis - user apeyy133 logged in
+[INFO ] 2020-11-17 23:43:07.812 [main] LogThis - user apeyy logged in
+[INFO ] 2020-11-17 23:44:48.547 [main] LogThis -  admin logged in
+[INFO ] 2020-11-17 23:47:55.552 [main] LogThis - user apeyy logged in
+[INFO ] 2020-11-17 23:48:40.117 [main] LogThis - apeyy made an deposit of $ 50.0
+[INFO ] 2020-11-17 23:48:54.769 [main] LogThis - user apeyy logged in
+[INFO ] 2020-11-17 23:49:35.469 [main] LogThis - user apeyy logged in
+[INFO ] 2020-11-17 23:50:05.302 [main] LogThis - user apeyy logged in
